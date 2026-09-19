@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A practical CSS cheatsheet covering selectors, properties, layout, Flexbox, Grid, responsive design and more."
+    >
+
+    <title>CSS Cheatsheet | Dev Cheatsheets</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a
+                href="../index.html"
+                class="logo"
+            >
+                Dev Cheatsheets
+            </a>
+
+
+            <nav
+                class="main-nav"
+                aria-label="Main navigation"
+            >
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="#basics">
+                    CSS Basics
+                </a>
+
+                <a href="#selectors">
+                    Selectors
+                </a>
+
+                <a href="#layout">
+                    Layout
+                </a>
+
+                <a href="#responsive">
+                    Responsive
+                </a>
+
+            </nav>
+
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Toggle dark mode"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="container">
+
+                <p class="eyebrow">
+                    WEB DEVELOPMENT
+                </p>
+
+
+                <h1>
+                    CSS Cheatsheet
+                </h1>
+
+
+                <p class="hero-text">
+                    A practical reference for CSS selectors,
+                    properties, layout, Flexbox, Grid,
+                    responsive design, animations, and more.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             CSS BASICS
+        ========================================== -->
+
+        <section
+            class="cheatsheet-section"
+            id="basics"
+        >
+
+            <div class="container">
+
+                <h2>
+                    CSS Basics
+                </h2>
+
+
+                <p>
+                    CSS controls the presentation and layout
+                    of HTML elements.
+                </p>
+
+
+                <h3>
+                    Connecting CSS
+                </h3>
+
+
+                <pre><code>&lt;!-- External CSS --&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;!-- Internal CSS --&gt;
+&lt;style&gt;
+    p {
+        color: blue;
+    }
+&lt;/style&gt;
+
+&lt;!-- Inline CSS --&gt;
+&lt;p style="color: blue;"&gt;Hello&lt;/p&gt;</code></pre>
+
+
+                <h3>
+                    Basic Rule Structure
+                </h3>
+
+
+                <pre><code>selector {
+    property: value;
+}</code></pre>
+
+
+                <p>
+                    Example:
+                </p>
+
+
+                <pre><code>p {
+    color: blue;
+    font-size: 18px;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             SELECTORS
+        ========================================== -->
+
+        <section
+            class="cheatsheet-section"
+            id="selectors"
+        >
+
+            <div class="container">
+
+                <h2>
+                    Selectors
+                </h2>
+
+
+                <p>
+                    Selectors determine which HTML elements
+                    a CSS rule applies to.
+                </p>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Selector</th>
+                                <th>Example</th>
+                                <th>Targets</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>Element</td>
+                                <td><code>p</code></td>
+                                <td>All paragraph elements</td>
+                            </tr>
+
+                            <tr>
+                                <td>Class</td>
+                                <td><code>.card</code></td>
+                                <td>Elements with class="card"</td>
+                            </tr>
+
+                            <tr>
+                                <td>ID</td>
+                                <td><code>#header</code></td>
+                                <td>Element with id="header"</td>
+                            </tr>
+
+                            <tr>
+                                <td>Universal</td>
+                                <td><code>*</code></td>
+                                <td>Every element</td>
+                            </tr>
+
+                            <tr>
+                                <td>Attribute</td>
+                                <td><code>input[type="text"]</code></td>
+                                <td>Matching input elements</td>
+                            </tr>
+
+                            <tr>
+                                <td>Descendant</td>
+                                <td><code>.card p</code></td>
+                                <td>Paragraphs inside .card</td>
+                            </tr>
+
+                            <tr>
+                                <td>Child</td>
+                                <td><code>.card &gt; p</code></td>
+                                <td>Direct child paragraphs</td>
+                            </tr>
+
+                            <tr>
+                                <td>Adjacent sibling</td>
+                                <td><code>h2 + p</code></td>
+                                <td>First p immediately after h2</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <h3>
+                    Pseudo-classes
+                </h3>
+
+
+                <pre><code>a:hover {
+    color: blue;
+}
+
+input:focus {
+    outline: 2px solid blue;
+}
+
+li:first-child {
+    font-weight: bold;
+}
+
+li:last-child {
+    margin-bottom: 0;
+}
+
+button:disabled {
+    opacity: 0.5;
+}</code></pre>
+
+
+                <h3>
+                    Pseudo-elements
+                </h3>
+
+
+                <pre><code>p::before {
+    content: "→ ";
+}
+
+p::after {
+    content: " ✓";
+}
+
+::selection {
+    background: black;
+    color: white;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             COMMON PROPERTIES
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Common Properties
+                </h2>
+
+
+                <h3>
+                    Colors
+                </h3>
+
+
+                <pre><code>.card {
+    color: #222;
+    background-color: #f5f5f5;
+
+    border-color: #ddd;
+}
+
+.title {
+    color: rgb(37, 99, 235);
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}</code></pre>
+
+
+                <h3>
+                    Typography
+                </h3>
+
+
+                <pre><code>body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+a {
+    text-decoration: none;
+}</code></pre>
+
+
+                <h3>
+                    Spacing
+                </h3>
+
+
+                <pre><code>.box {
+    margin: 20px;
+    padding: 20px;
+
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             BOX MODEL
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Box Model
+                </h2>
+
+
+                <p>
+                    Every HTML element is represented as a box
+                    consisting of content, padding, border, and margin.
+                </p>
+
+
+                <pre><code>.box {
+    width: 300px;
+    height: 200px;
+
+    padding: 20px;
+
+    border: 1px solid #ccc;
+
+    margin: 30px;
+}</code></pre>
+
+
+                <h3>
+                    Box Sizing
+                </h3>
+
+
+                <pre><code>/* Recommended global rule */
+
+* {
+    box-sizing: border-box;
+}</code></pre>
+
+
+                <p>
+                    With <code>border-box</code>, padding and
+                    borders are included in the declared width
+                    and height.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             FLEXBOX
+        ========================================== -->
+
+        <section
+            class="cheatsheet-section"
+            id="layout"
+        >
+
+            <div class="container">
+
+                <h2>
+                    Flexbox
+                </h2>
+
+
+                <p>
+                    Flexbox is designed for arranging elements
+                    along one-dimensional rows or columns.
+                </p>
+
+
+                <h3>
+                    Container
+                </h3>
+
+
+                <pre><code>.container {
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 20px;
+}</code></pre>
+
+
+                <h3>
+                    Direction
+                </h3>
+
+
+                <pre><code>.container {
+    display: flex;
+
+    flex-direction: row;
+}
+
+/* Vertical */
+
+.container {
+    flex-direction: column;
+}</code></pre>
+
+
+                <h3>
+                    Justify Content
+                </h3>
+
+
+                <pre><code>.container {
+    display: flex;
+
+    justify-content: flex-start;
+    justify-content: center;
+    justify-content: flex-end;
+    justify-content: space-between;
+    justify-content: space-around;
+    justify-content: space-evenly;
+}</code></pre>
+
+
+                <h3>
+                    Align Items
+                </h3>
+
+
+                <pre><code>.container {
+    display: flex;
+
+    align-items: stretch;
+    align-items: flex-start;
+    align-items: center;
+    align-items: flex-end;
+    align-items: baseline;
+}</code></pre>
+
+
+                <h3>
+                    Wrapping
+                </h3>
+
+
+                <pre><code>.container {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 16px;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             CSS GRID
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    CSS Grid
+                </h2>
+
+
+                <p>
+                    CSS Grid is useful for two-dimensional
+                    layouts involving rows and columns.
+                </p>
+
+
+                <h3>
+                    Basic Grid
+                </h3>
+
+
+                <pre><code>.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}</code></pre>
+
+
+                <h3>
+                    Responsive Grid
+                </h3>
+
+
+                <pre><code>.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 20px;
+}</code></pre>
+
+
+                <h3>
+                    Grid Placement
+                </h3>
+
+
+                <pre><code>.item {
+    grid-column: span 2;
+}
+
+.feature {
+    grid-row: span 2;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             POSITIONING
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Positioning
+                </h2>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Position</th>
+                                <th>Behavior</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>static</code></td>
+                                <td>Normal document flow</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>relative</code></td>
+                                <td>Offset relative to normal position</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>absolute</code></td>
+                                <td>Positioned relative to a containing block</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>fixed</code></td>
+                                <td>Positioned relative to the viewport</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>sticky</code></td>
+                                <td>Acts relative until a scroll threshold</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <pre><code>.parent {
+    position: relative;
+}
+
+.child {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             RESPONSIVE DESIGN
+        ========================================== -->
+
+        <section
+            class="cheatsheet-section"
+            id="responsive"
+        >
+
+            <div class="container">
+
+                <h2>
+                    Responsive Design
+                </h2>
+
+
+                <p>
+                    Media queries allow styles to change
+                    based on viewport characteristics.
+                </p>
+
+
+                <h3>
+                    Media Query
+                </h3>
+
+
+                <pre><code>@media (max-width: 768px) {
+
+    .container {
+        padding: 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+}</code></pre>
+
+
+                <h3>
+                    Common Breakpoints
+                </h3>
+
+
+                <pre><code>/* Small phones */
+@media (max-width: 480px) {}
+
+/* Tablets */
+@media (max-width: 768px) {}
+
+/* Laptops */
+@media (max-width: 1024px) {}
+
+/* Large screens */
+@media (max-width: 1280px) {}</code></pre>
+
+
+                <h3>
+                    Responsive Typography
+                </h3>
+
+
+                <pre><code>h1 {
+    font-size:
+        clamp(
+            2rem,
+            6vw,
+            5rem
+        );
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             TRANSITIONS & ANIMATIONS
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Transitions & Animations
+                </h2>
+
+
+                <h3>
+                    Transition
+                </h3>
+
+
+                <pre><code>.button {
+    background: blue;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.button:hover {
+    background: darkblue;
+    transform: translateY(-2px);
+}</code></pre>
+
+
+                <h3>
+                    Transform
+                </h3>
+
+
+                <pre><code>.box {
+    transform: translateX(20px);
+}
+
+.box {
+    transform: scale(1.1);
+}
+
+.box {
+    transform: rotate(45deg);
+}</code></pre>
+
+
+                <h3>
+                    Keyframes
+                </h3>
+
+
+                <pre><code>@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+.element {
+    animation:
+        fadeIn
+        0.5s
+        ease
+        forwards;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             CSS VARIABLES
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    CSS Variables
+                </h2>
+
+
+                <p>
+                    Custom properties make it easier to reuse
+                    values throughout a stylesheet.
+                </p>
+
+
+                <pre><code>:root {
+    --primary: #2563eb;
+    --background: #ffffff;
+    --text: #111827;
+    --spacing: 20px;
+}
+
+.button {
+    color: white;
+    background: var(--primary);
+
+    padding: var(--spacing);
+}
+
+body {
+    color: var(--text);
+    background: var(--background);
+}</code></pre>
+
+
+                <h3>
+                    Changing a Variable
+                </h3>
+
+
+                <pre><code>:root {
+    --primary: #7c3aed;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             USEFUL PATTERNS
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Useful CSS Patterns
+                </h2>
+
+
+                <h3>
+                    Center Anything
+                </h3>
+
+
+                <pre><code>.center {
+    display: grid;
+    place-items: center;
+}</code></pre>
+
+
+                <h3>
+                    Full Height Layout
+                </h3>
+
+
+                <pre><code>body {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}</code></pre>
+
+
+                <h3>
+                    Truncate Text
+                </h3>
+
+
+                <pre><code>.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}</code></pre>
+
+
+                <h3>
+                    Smooth Scrolling
+                </h3>
+
+
+                <pre><code>html {
+    scroll-behavior: smooth;
+}</code></pre>
+
+
+                <h3>
+                    Remove List Styling
+                </h3>
+
+
+                <pre><code>ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}</code></pre>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-container">
+
+            <div>
+
+                <strong>
+                    Dev Cheatsheets
+                </strong>
+
+                <p>
+                    A growing reference for developers.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <p>
+                    Built with HTML, CSS &amp; JavaScript.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

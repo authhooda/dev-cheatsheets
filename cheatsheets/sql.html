@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="SQL cheatsheet covering queries, joins, aggregates, constraints, indexes, transactions, and common SQL patterns."
+    >
+
+    <title>SQL Cheatsheet | Dev Cheatsheets</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a
+                href="../index.html"
+                class="site-logo"
+            >
+                Dev Cheatsheets
+            </a>
+
+            <nav class="main-navigation">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="html.html">
+                    HTML
+                </a>
+
+                <a href="css.html">
+                    CSS
+                </a>
+
+                <a href="js.html">
+                    JavaScript
+                </a>
+
+                <button
+                    id="themeToggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Switch to dark mode"
+                >
+                    🌙
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="docs-hero">
+
+        <div class="docs-container">
+
+            <div class="hero-text">
+
+                <p class="eyebrow">
+                    DATABASE
+                </p>
+
+                <h1>
+                    SQL Cheatsheet
+                </h1>
+
+                <p class="hero-description">
+                    A practical reference for querying,
+                    filtering, joining, grouping, modifying,
+                    and managing relational databases.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTENT
+    ====================================================== -->
+
+    <main class="docs-content">
+
+        <div class="docs-container">
+
+
+            <!-- =================================================
+                 SQL BASICS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    SQL Basics
+                </h2>
+
+                <p>
+                    SQL (Structured Query Language) is used to
+                    communicate with relational databases.
+                </p>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>SELECT</code></td>
+                                <td>Read data</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>INSERT</code></td>
+                                <td>Add data</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>UPDATE</code></td>
+                                <td>Modify data</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>DELETE</code></td>
+                                <td>Remove data</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>CREATE</code></td>
+                                <td>Create database objects</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>ALTER</code></td>
+                                <td>Modify database objects</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>DROP</code></td>
+                                <td>Delete database objects</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SELECT
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    SELECT
+                </h2>
+
+                <p>
+                    Retrieve data from a table.
+                </p>
+
+                <pre><code>SELECT *
+FROM users;</code></pre>
+
+                <pre><code>SELECT name, email
+FROM users;</code></pre>
+
+                <pre><code>SELECT
+    name AS username,
+    email AS email_address
+FROM users;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 DISTINCT
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    DISTINCT
+                </h2>
+
+                <p>
+                    Return only unique values.
+                </p>
+
+                <pre><code>SELECT DISTINCT country
+FROM users;</code></pre>
+
+                <pre><code>SELECT DISTINCT country, city
+FROM users;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 WHERE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    WHERE
+                </h2>
+
+                <p>
+                    Filter rows based on a condition.
+                </p>
+
+                <pre><code>SELECT *
+FROM users
+WHERE age > 18;</code></pre>
+
+                <pre><code>SELECT *
+FROM users
+WHERE country = 'India';</code></pre>
+
+                <h3>
+                    Comparison Operators
+                </h3>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Operator</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>=</code></td>
+                                <td>Equal</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;&gt;</code></td>
+                                <td>Not equal</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&gt;</code></td>
+                                <td>Greater than</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;</code></td>
+                                <td>Less than</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&gt;=</code></td>
+                                <td>Greater than or equal</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;=</code></td>
+                                <td>Less than or equal</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 AND OR NOT
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    AND, OR, NOT
+                </h2>
+
+                <pre><code>SELECT *
+FROM users
+WHERE age >= 18
+AND country = 'India';</code></pre>
+
+                <pre><code>SELECT *
+FROM users
+WHERE country = 'India'
+OR country = 'Canada';</code></pre>
+
+                <pre><code>SELECT *
+FROM users
+WHERE NOT country = 'India';</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 IN
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    IN
+                </h2>
+
+                <p>
+                    Match a value against multiple possible values.
+                </p>
+
+                <pre><code>SELECT *
+FROM users
+WHERE country IN ('India', 'Canada', 'Japan');</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 BETWEEN
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    BETWEEN
+                </h2>
+
+                <p>
+                    Filter values within a range.
+                </p>
+
+                <pre><code>SELECT *
+FROM products
+WHERE price BETWEEN 100 AND 500;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 LIKE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    LIKE
+                </h2>
+
+                <p>
+                    Search for patterns in text.
+                </p>
+
+                <pre><code>SELECT *
+FROM users
+WHERE name LIKE 'A%';</code></pre>
+
+                <pre><code>SELECT *
+FROM users
+WHERE name LIKE '%son';</code></pre>
+
+                <pre><code>SELECT *
+FROM users
+WHERE name LIKE '%ary%';</code></pre>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Pattern</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>A%</code></td>
+                                <td>Starts with A</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>%A</code></td>
+                                <td>Ends with A</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>%A%</code></td>
+                                <td>Contains A</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>_A%</code></td>
+                                <td>Second character is A</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 NULL
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    NULL
+                </h2>
+
+                <p>
+                    Use <code>IS NULL</code> and
+                    <code>IS NOT NULL</code> to test for NULL values.
+                </p>
+
+                <pre><code>SELECT *
+FROM users
+WHERE phone IS NULL;</code></pre>
+
+                <pre><code>SELECT *
+FROM users
+WHERE phone IS NOT NULL;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 ORDER BY
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    ORDER BY
+                </h2>
+
+                <p>
+                    Sort query results.
+                </p>
+
+                <pre><code>SELECT *
+FROM users
+ORDER BY name;</code></pre>
+
+                <pre><code>SELECT *
+FROM users
+ORDER BY age DESC;</code></pre>
+
+                <pre><code>SELECT *
+FROM users
+ORDER BY country ASC, name ASC;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 LIMIT
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    LIMIT
+                </h2>
+
+                <p>
+                    Restrict the number of rows returned.
+                </p>
+
+                <pre><code>SELECT *
+FROM users
+LIMIT 10;</code></pre>
+
+                <p>
+                    Some database systems use different syntax
+                    for limiting or paginating results.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 INSERT
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    INSERT
+                </h2>
+
+                <p>
+                    Add new rows to a table.
+                </p>
+
+                <pre><code>INSERT INTO users (name, email, age)
+VALUES ('Aryan', 'aryan@example.com', 21);</code></pre>
+
+                <h3>
+                    Insert Multiple Rows
+                </h3>
+
+                <pre><code>INSERT INTO users (name, email)
+VALUES
+    ('Aman', 'aman@example.com'),
+    ('Riya', 'riya@example.com'),
+    ('John', 'john@example.com');</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 UPDATE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    UPDATE
+                </h2>
+
+                <p>
+                    Modify existing rows.
+                </p>
+
+                <pre><code>UPDATE users
+SET age = 22
+WHERE id = 1;</code></pre>
+
+                <p>
+                    Always use an appropriate
+                    <code>WHERE</code> condition when updating
+                    specific rows.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 DELETE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    DELETE
+                </h2>
+
+                <p>
+                    Remove rows from a table.
+                </p>
+
+                <pre><code>DELETE FROM users
+WHERE id = 1;</code></pre>
+
+                <p>
+                    Without a <code>WHERE</code> clause, the statement
+                    can delete every row in the table.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 AGGREGATE FUNCTIONS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Aggregate Functions
+                </h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Function</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>COUNT()</code></td>
+                                <td>Count rows or values</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>SUM()</code></td>
+                                <td>Add values</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>AVG()</code></td>
+                                <td>Calculate average</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>MIN()</code></td>
+                                <td>Find minimum</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>MAX()</code></td>
+                                <td>Find maximum</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <pre><code>SELECT COUNT(*)
+FROM users;</code></pre>
+
+                <pre><code>SELECT AVG(salary)
+FROM employees;</code></pre>
+
+                <pre><code>SELECT MIN(price), MAX(price)
+FROM products;</code></pre>
+
+                <pre><code>SELECT SUM(amount)
+FROM orders;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 GROUP BY
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    GROUP BY
+                </h2>
+
+                <p>
+                    Group rows so aggregate functions can be
+                    calculated for each group.
+                </p>
+
+                <pre><code>SELECT country, COUNT(*) AS user_count
+FROM users
+GROUP BY country;</code></pre>
+
+                <pre><code>SELECT department, AVG(salary) AS average_salary
+FROM employees
+GROUP BY department;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 HAVING
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    HAVING
+                </h2>
+
+                <p>
+                    Filter grouped results.
+                </p>
+
+                <pre><code>SELECT country, COUNT(*) AS user_count
+FROM users
+GROUP BY country
+HAVING COUNT(*) > 10;</code></pre>
+
+                <p>
+                    <code>WHERE</code> filters rows before grouping,
+                    while <code>HAVING</code> filters groups after
+                    aggregation.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 JOINS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    JOINs
+                </h2>
+
+                <p>
+                    JOINs combine related rows from multiple tables.
+                </p>
+
+                <h3>
+                    INNER JOIN
+                </h3>
+
+                <p>
+                    Returns matching rows from both tables.
+                </p>
+
+                <pre><code>SELECT
+    users.name,
+    orders.amount
+FROM users
+INNER JOIN orders
+    ON users.id = orders.user_id;</code></pre>
+
+                <h3>
+                    LEFT JOIN
+                </h3>
+
+                <p>
+                    Returns all rows from the left table and
+                    matching rows from the right table.
+                </p>
+
+                <pre><code>SELECT
+    users.name,
+    orders.amount
+FROM users
+LEFT JOIN orders
+    ON users.id = orders.user_id;</code></pre>
+
+                <h3>
+                    RIGHT JOIN
+                </h3>
+
+                <p>
+                    Returns all rows from the right table and
+                    matching rows from the left table.
+                </p>
+
+                <pre><code>SELECT
+    users.name,
+    orders.amount
+FROM users
+RIGHT JOIN orders
+    ON users.id = orders.user_id;</code></pre>
+
+                <h3>
+                    FULL OUTER JOIN
+                </h3>
+
+                <p>
+                    Returns matching rows plus unmatched rows
+                    from both tables where supported.
+                </p>
+
+                <pre><code>SELECT
+    users.name,
+    orders.amount
+FROM users
+FULL OUTER JOIN orders
+    ON users.id = orders.user_id;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 JOIN SUMMARY
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    JOIN Summary
+                </h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>JOIN</th>
+                                <th>Returns</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>INNER JOIN</code></td>
+                                <td>Matching rows from both tables</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>LEFT JOIN</code></td>
+                                <td>All left rows + matching right rows</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>RIGHT JOIN</code></td>
+                                <td>All right rows + matching left rows</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>FULL OUTER JOIN</code></td>
+                                <td>All rows from both tables</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ALIASES
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Aliases
+                </h2>
+
+                <p>
+                    Aliases give tables or columns temporary names
+                    within a query.
+                </p>
+
+                <pre><code>SELECT
+    u.name,
+    u.email
+FROM users AS u;</code></pre>
+
+                <pre><code>SELECT
+    name AS username
+FROM users;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 SUBQUERIES
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Subqueries
+                </h2>
+
+                <p>
+                    A subquery is a query nested inside another query.
+                </p>
+
+                <pre><code>SELECT name
+FROM users
+WHERE id IN (
+    SELECT user_id
+    FROM orders
+);</code></pre>
+
+                <pre><code>SELECT *
+FROM products
+WHERE price > (
+    SELECT AVG(price)
+    FROM products
+);</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 CTE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    CTEs
+                </h2>
+
+                <p>
+                    Common Table Expressions use the
+                    <code>WITH</code> keyword to define a temporary
+                    named result set.
+                </p>
+
+                <pre><code>WITH active_users AS (
+    SELECT *
+    FROM users
+    WHERE active = true
+)
+SELECT *
+FROM active_users;</code></pre>
+
+                <h3>
+                    Multiple CTEs
+                </h3>
+
+                <pre><code>WITH
+active_users AS (
+    SELECT *
+    FROM users
+    WHERE active = true
+),
+large_orders AS (
+    SELECT *
+    FROM orders
+    WHERE amount > 1000
+)
+SELECT *
+FROM active_users
+JOIN large_orders
+    ON active_users.id = large_orders.user_id;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 CASE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    CASE
+                </h2>
+
+                <p>
+                    Use <code>CASE</code> for conditional logic.
+                </p>
+
+                <pre><code>SELECT
+    name,
+    CASE
+        WHEN age >= 18 THEN 'Adult'
+        ELSE 'Minor'
+    END AS age_group
+FROM users;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 COALESCE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    COALESCE
+                </h2>
+
+                <p>
+                    Return the first non-NULL value.
+                </p>
+
+                <pre><code>SELECT
+    name,
+    COALESCE(phone, 'No phone number') AS phone
+FROM users;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 CONSTRAINTS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Constraints
+                </h2>
+
+                <p>
+                    Constraints define rules for data stored in tables.
+                </p>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Constraint</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>PRIMARY KEY</code></td>
+                                <td>Uniquely identifies rows</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>FOREIGN KEY</code></td>
+                                <td>References another table</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>NOT NULL</code></td>
+                                <td>Prevents NULL values</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>UNIQUE</code></td>
+                                <td>Requires unique values</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>CHECK</code></td>
+                                <td>Enforces a condition</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>DEFAULT</code></td>
+                                <td>Provides a default value</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CREATE TABLE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    CREATE TABLE
+                </h2>
+
+                <pre><code>CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(255) UNIQUE,
+    age INTEGER,
+    created_at TIMESTAMP
+);</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 ALTER TABLE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    ALTER TABLE
+                </h2>
+
+                <h3>
+                    Add a Column
+                </h3>
+
+                <pre><code>ALTER TABLE users
+ADD COLUMN phone VARCHAR(20);</code></pre>
+
+                <h3>
+                    Drop a Column
+                </h3>
+
+                <pre><code>ALTER TABLE users
+DROP COLUMN phone;</code></pre>
+
+                <p>
+                    Exact ALTER TABLE syntax can vary between
+                    database systems.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 DROP TABLE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    DROP TABLE
+                </h2>
+
+                <p>
+                    Delete a table and its data.
+                </p>
+
+                <pre><code>DROP TABLE users;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 INDEXES
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Indexes
+                </h2>
+
+                <p>
+                    Indexes can improve the performance of searches
+                    and other queries involving indexed columns.
+                </p>
+
+                <pre><code>CREATE INDEX idx_users_email
+ON users(email);</code></pre>
+
+                <pre><code>DROP INDEX idx_users_email;</code></pre>
+
+                <p>
+                    Indexes also consume storage and can add overhead
+                    to data modification operations.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 TRANSACTIONS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Transactions
+                </h2>
+
+                <p>
+                    Transactions group database operations into a
+                    unit that can be committed or rolled back.
+                </p>
+
+                <pre><code>BEGIN;
+
+UPDATE accounts
+SET balance = balance - 100
+WHERE id = 1;
+
+UPDATE accounts
+SET balance = balance + 100
+WHERE id = 2;
+
+COMMIT;</code></pre>
+
+                <h3>
+                    Rollback
+                </h3>
+
+                <pre><code>BEGIN;
+
+DELETE FROM users
+WHERE id = 10;
+
+ROLLBACK;</code></pre>
+
+                <p>
+                    Transaction commands and behavior can vary
+                    between database systems.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 COMMON QUERY ORDER
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Common Query Order
+                </h2>
+
+                <p>
+                    A common SQL query is written in this order:
+                </p>
+
+                <pre><code>SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+LIMIT</code></pre>
+
+                <p>
+                    Example:
+                </p>
+
+                <pre><code>SELECT
+    country,
+    COUNT(*) AS user_count
+FROM users
+WHERE active = true
+GROUP BY country
+HAVING COUNT(*) > 5
+ORDER BY user_count DESC
+LIMIT 10;</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 COMMON PATTERNS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Common SQL Patterns
+                </h2>
+
+                <h3>
+                    Count Rows
+                </h3>
+
+                <pre><code>SELECT COUNT(*)
+FROM users;</code></pre>
+
+                <h3>
+                    Find Duplicate Values
+                </h3>
+
+                <pre><code>SELECT email, COUNT(*)
+FROM users
+GROUP BY email
+HAVING COUNT(*) > 1;</code></pre>
+
+                <h3>
+                    Find the Highest Value
+                </h3>
+
+                <pre><code>SELECT MAX(price)
+FROM products;</code></pre>
+
+                <h3>
+                    Find the Lowest Value
+                </h3>
+
+                <pre><code>SELECT MIN(price)
+FROM products;</code></pre>
+
+                <h3>
+                    Sort and Get the First Rows
+                </h3>
+
+                <pre><code>SELECT *
+FROM products
+ORDER BY price DESC
+LIMIT 10;</code></pre>
+
+                <h3>
+                    Filter by Multiple Values
+                </h3>
+
+                <pre><code>SELECT *
+FROM users
+WHERE country IN ('India', 'Japan', 'Canada');</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 SQL KEYWORDS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Important SQL Keywords
+                </h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Keyword</th>
+                                <th>Use</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>SELECT</code></td>
+                                <td>Retrieve data</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>FROM</code></td>
+                                <td>Specify source table</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>WHERE</code></td>
+                                <td>Filter rows</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>JOIN</code></td>
+                                <td>Combine tables</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>ON</code></td>
+                                <td>Specify join condition</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>GROUP BY</code></td>
+                                <td>Group rows</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>HAVING</code></td>
+                                <td>Filter groups</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>ORDER BY</code></td>
+                                <td>Sort results</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>INSERT INTO</code></td>
+                                <td>Add rows</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>UPDATE</code></td>
+                                <td>Modify rows</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>DELETE</code></td>
+                                <td>Remove rows</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>CREATE</code></td>
+                                <td>Create objects</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>ALTER</code></td>
+                                <td>Modify objects</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>DROP</code></td>
+                                <td>Delete objects</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BACK
+            ================================================== -->
+
+            <div class="docs-back">
+
+                <a href="../index.html">
+                    ← Back to all cheatsheets
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <p>
+                © <span id="currentYear"></span>
+                Dev Cheatsheets
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

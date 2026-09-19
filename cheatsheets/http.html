@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="HTTP cheatsheet covering methods, status codes, headers, requests, responses, cookies, caching, authentication and CORS."
+    >
+
+    <title>HTTP Cheatsheet | Dev Cheatsheets</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="../index.html" class="logo">
+                Dev Cheatsheets
+            </a>
+
+            <nav
+                class="main-navigation"
+                aria-label="Main navigation"
+            >
+                <a href="../index.html#web-development">
+                    Web
+                </a>
+
+                <a href="../index.html#programming">
+                    Programming
+                </a>
+
+                <a href="../index.html#databases">
+                    Databases
+                </a>
+
+                <a href="../index.html#tools">
+                    Tools
+                </a>
+            </nav>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle dark mode"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="docs-hero">
+
+            <div class="docs-container">
+
+                <p class="eyebrow">
+                    WEB DEVELOPMENT
+                </p>
+
+                <h1>
+                    HTTP Cheatsheet
+                </h1>
+
+                <p class="hero-text">
+                    Requests, responses, methods, status codes,
+                    headers, cookies, caching, authentication
+                    and common HTTP concepts.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTENT -->
+
+        <section class="docs-content">
+
+            <div class="docs-container">
+
+
+                <!-- =================================================
+                     QUICK REFERENCE
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Quick Reference</h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Concept</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>GET</td>
+                                    <td>Retrieve data</td>
+                                </tr>
+
+                                <tr>
+                                    <td>POST</td>
+                                    <td>Create or submit data</td>
+                                </tr>
+
+                                <tr>
+                                    <td>PUT</td>
+                                    <td>Replace a resource</td>
+                                </tr>
+
+                                <tr>
+                                    <td>PATCH</td>
+                                    <td>Partially update a resource</td>
+                                </tr>
+
+                                <tr>
+                                    <td>DELETE</td>
+                                    <td>Delete a resource</td>
+                                </tr>
+
+                                <tr>
+                                    <td>200</td>
+                                    <td>OK</td>
+                                </tr>
+
+                                <tr>
+                                    <td>201</td>
+                                    <td>Created</td>
+                                </tr>
+
+                                <tr>
+                                    <td>404</td>
+                                    <td>Not Found</td>
+                                </tr>
+
+                                <tr>
+                                    <td>500</td>
+                                    <td>Internal Server Error</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     HTTP BASICS
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>HTTP Basics</h2>
+
+                    <p>
+                        HTTP stands for
+                        <strong>HyperText Transfer Protocol</strong>.
+                        It is the protocol commonly used for communication
+                        between clients and servers on the web.
+                    </p>
+
+                    <p>
+                        A client sends an HTTP request and a server
+                        sends an HTTP response.
+                    </p>
+
+                    <pre><code>Client
+  |
+  | HTTP Request
+  v
+Server
+  |
+  | HTTP Response
+  v
+Client</code></pre>
+
+                    <h3>HTTPS</h3>
+
+                    <p>
+                        HTTPS is HTTP transported over a secure
+                        TLS connection. It helps protect data
+                        while it travels between client and server.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                     URL STRUCTURE
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>URL Structure</h2>
+
+                    <pre><code>https://example.com:443/users?id=42#profile</code></pre>
+
+                    <ul>
+                        <li><strong>https</strong> — protocol</li>
+                        <li><strong>example.com</strong> — host/domain</li>
+                        <li><strong>443</strong> — port</li>
+                        <li><strong>/users</strong> — path</li>
+                        <li><strong>?id=42</strong> — query string</li>
+                        <li><strong>#profile</strong> — fragment</li>
+                    </ul>
+
+                </section>
+
+
+                <!-- =================================================
+                     HTTP METHODS
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>HTTP Methods</h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>Purpose</th>
+                                    <th>Typical Use</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>GET</td>
+                                    <td>Read data</td>
+                                    <td>Fetch users</td>
+                                </tr>
+
+                                <tr>
+                                    <td>POST</td>
+                                    <td>Create/submit data</td>
+                                    <td>Create a user</td>
+                                </tr>
+
+                                <tr>
+                                    <td>PUT</td>
+                                    <td>Replace a resource</td>
+                                    <td>Replace user data</td>
+                                </tr>
+
+                                <tr>
+                                    <td>PATCH</td>
+                                    <td>Partially update</td>
+                                    <td>Change user email</td>
+                                </tr>
+
+                                <tr>
+                                    <td>DELETE</td>
+                                    <td>Delete data</td>
+                                    <td>Delete a user</td>
+                                </tr>
+
+                                <tr>
+                                    <td>HEAD</td>
+                                    <td>Get headers only</td>
+                                    <td>Check resource metadata</td>
+                                </tr>
+
+                                <tr>
+                                    <td>OPTIONS</td>
+                                    <td>Discover supported options</td>
+                                    <td>CORS preflight</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     REQUEST
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>HTTP Request</h2>
+
+                    <p>
+                        A request commonly contains a method, URL,
+                        headers and optionally a body.
+                    </p>
+
+                    <pre><code>POST /api/users HTTP/1.1
+Host: example.com
+Content-Type: application/json
+Authorization: Bearer TOKEN
+
+{
+  "name": "Aryan",
+  "email": "aryan@example.com"
+}</code></pre>
+
+                    <h3>Request Parts</h3>
+
+                    <ul>
+                        <li><strong>Method</strong> — what action to perform</li>
+                        <li><strong>Path</strong> — requested resource</li>
+                        <li><strong>Headers</strong> — metadata about the request</li>
+                        <li><strong>Body</strong> — optional data sent to the server</li>
+                    </ul>
+
+                </section>
+
+
+                <!-- =================================================
+                     RESPONSE
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>HTTP Response</h2>
+
+                    <pre><code>HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 42,
+  "name": "Aryan"
+}</code></pre>
+
+                    <h3>Response Parts</h3>
+
+                    <ul>
+                        <li><strong>Status line</strong> — protocol version and status</li>
+                        <li><strong>Headers</strong> — response metadata</li>
+                        <li><strong>Body</strong> — optional response data</li>
+                    </ul>
+
+                </section>
+
+
+                <!-- =================================================
+                     STATUS CODES
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Status Codes</h2>
+
+                    <p>
+                        HTTP status codes are grouped into five
+                        major categories.
+                    </p>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Range</th>
+                                    <th>Category</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>1xx</td>
+                                    <td>Informational</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2xx</td>
+                                    <td>Successful</td>
+                                </tr>
+
+                                <tr>
+                                    <td>3xx</td>
+                                    <td>Redirection</td>
+                                </tr>
+
+                                <tr>
+                                    <td>4xx</td>
+                                    <td>Client error</td>
+                                </tr>
+
+                                <tr>
+                                    <td>5xx</td>
+                                    <td>Server error</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     COMMON STATUS CODES
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Common Status Codes</h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Name</th>
+                                    <th>Meaning</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>200</td>
+                                    <td>OK</td>
+                                    <td>Request succeeded</td>
+                                </tr>
+
+                                <tr>
+                                    <td>201</td>
+                                    <td>Created</td>
+                                    <td>Resource was created</td>
+                                </tr>
+
+                                <tr>
+                                    <td>204</td>
+                                    <td>No Content</td>
+                                    <td>Successful response with no response body</td>
+                                </tr>
+
+                                <tr>
+                                    <td>301</td>
+                                    <td>Moved Permanently</td>
+                                    <td>Resource has a permanent new URL</td>
+                                </tr>
+
+                                <tr>
+                                    <td>302</td>
+                                    <td>Found</td>
+                                    <td>Temporary redirect</td>
+                                </tr>
+
+                                <tr>
+                                    <td>304</td>
+                                    <td>Not Modified</td>
+                                    <td>Cached representation can be reused</td>
+                                </tr>
+
+                                <tr>
+                                    <td>400</td>
+                                    <td>Bad Request</td>
+                                    <td>Request is invalid</td>
+                                </tr>
+
+                                <tr>
+                                    <td>401</td>
+                                    <td>Unauthorized</td>
+                                    <td>Authentication is required or failed</td>
+                                </tr>
+
+                                <tr>
+                                    <td>403</td>
+                                    <td>Forbidden</td>
+                                    <td>Server refuses the request</td>
+                                </tr>
+
+                                <tr>
+                                    <td>404</td>
+                                    <td>Not Found</td>
+                                    <td>Resource was not found</td>
+                                </tr>
+
+                                <tr>
+                                    <td>405</td>
+                                    <td>Method Not Allowed</td>
+                                    <td>Method is not supported for the resource</td>
+                                </tr>
+
+                                <tr>
+                                    <td>409</td>
+                                    <td>Conflict</td>
+                                    <td>Request conflicts with current state</td>
+                                </tr>
+
+                                <tr>
+                                    <td>422</td>
+                                    <td>Unprocessable Content</td>
+                                    <td>Request format is understood but data is invalid</td>
+                                </tr>
+
+                                <tr>
+                                    <td>429</td>
+                                    <td>Too Many Requests</td>
+                                    <td>Rate limit has been exceeded</td>
+                                </tr>
+
+                                <tr>
+                                    <td>500</td>
+                                    <td>Internal Server Error</td>
+                                    <td>Unexpected server-side failure</td>
+                                </tr>
+
+                                <tr>
+                                    <td>502</td>
+                                    <td>Bad Gateway</td>
+                                    <td>Gateway received an invalid upstream response</td>
+                                </tr>
+
+                                <tr>
+                                    <td>503</td>
+                                    <td>Service Unavailable</td>
+                                    <td>Server is temporarily unable to handle the request</td>
+                                </tr>
+
+                                <tr>
+                                    <td>504</td>
+                                    <td>Gateway Timeout</td>
+                                    <td>Gateway did not receive a timely upstream response</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     COMMON HEADERS
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Common Headers</h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Header</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Content-Type</td>
+                                    <td>Describes the body format</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Accept</td>
+                                    <td>Formats the client can receive</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Authorization</td>
+                                    <td>Credentials or access token</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Cookie</td>
+                                    <td>Sends cookies to the server</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Set-Cookie</td>
+                                    <td>Server instructs the browser to store a cookie</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Cache-Control</td>
+                                    <td>Controls caching behavior</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Location</td>
+                                    <td>Identifies another URL, commonly for redirects</td>
+                                </tr>
+
+                                <tr>
+                                    <td>User-Agent</td>
+                                    <td>Identifies the client software</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Referer</td>
+                                    <td>Indicates the referring URL</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Origin</td>
+                                    <td>Identifies the origin of a request</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     CONTENT TYPES
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Content Types</h2>
+
+                    <pre><code>Content-Type: application/json</code></pre>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Content-Type</th>
+                                    <th>Common Use</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>application/json</td>
+                                    <td>JSON API data</td>
+                                </tr>
+
+                                <tr>
+                                    <td>text/html</td>
+                                    <td>HTML documents</td>
+                                </tr>
+
+                                <tr>
+                                    <td>text/plain</td>
+                                    <td>Plain text</td>
+                                </tr>
+
+                                <tr>
+                                    <td>text/css</td>
+                                    <td>CSS files</td>
+                                </tr>
+
+                                <tr>
+                                    <td>application/javascript</td>
+                                    <td>JavaScript resources</td>
+                                </tr>
+
+                                <tr>
+                                    <td>application/x-www-form-urlencoded</td>
+                                    <td>URL-encoded form data</td>
+                                </tr>
+
+                                <tr>
+                                    <td>multipart/form-data</td>
+                                    <td>File uploads and multipart forms</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     QUERY PARAMETERS
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Query Parameters</h2>
+
+                    <pre><code>GET /users?page=2&limit=20&sort=name</code></pre>
+
+                    <p>
+                        Query parameters are commonly used to
+                        provide filtering, pagination, sorting
+                        or other optional request parameters.
+                    </p>
+
+                    <pre><code>GET /products?category=books&minPrice=10</code></pre>
+
+                </section>
+
+
+                <!-- =================================================
+                     PATH PARAMETERS
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Path Parameters</h2>
+
+                    <pre><code>GET /users/42
+GET /products/1001</code></pre>
+
+                    <p>
+                        The value in the URL path commonly identifies
+                        a specific resource.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                     JSON API
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>JSON API Example</h2>
+
+                    <pre><code>POST /api/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Aryan",
+  "role": "developer"
+}</code></pre>
+
+                    <p>Possible response:</p>
+
+                    <pre><code>HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+  "id": 101,
+  "name": "Aryan",
+  "role": "developer"
+}</code></pre>
+
+                </section>
+
+
+                <!-- =================================================
+                     COOKIES
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Cookies</h2>
+
+                    <p>
+                        Cookies are small pieces of data that a
+                        browser can store and send with requests.
+                    </p>
+
+                    <pre><code>Set-Cookie: sessionId=abc123; Secure; HttpOnly</code></pre>
+
+                    <p>
+                        Common cookie attributes include:
+                    </p>
+
+                    <ul>
+                        <li><strong>Secure</strong> — send over secure connections</li>
+                        <li><strong>HttpOnly</strong> — prevents JavaScript from directly reading the cookie</li>
+                        <li><strong>SameSite</strong> — controls cross-site cookie behavior</li>
+                        <li><strong>Max-Age</strong> — specifies a lifetime</li>
+                        <li><strong>Expires</strong> — specifies an expiration date</li>
+                        <li><strong>Path</strong> — limits the request paths where the cookie is sent</li>
+                        <li><strong>Domain</strong> — controls the applicable domain</li>
+                    </ul>
+
+                </section>
+
+
+                <!-- =================================================
+                     CACHING
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Caching</h2>
+
+                    <p>
+                        HTTP caching can reduce network requests
+                        and improve loading performance.
+                    </p>
+
+                    <pre><code>Cache-Control: max-age=3600</code></pre>
+
+                    <h3>Common Cache-Control Values</h3>
+
+                    <ul>
+                        <li><strong>max-age</strong> — freshness lifetime in seconds</li>
+                        <li><strong>no-cache</strong> — requires validation before reuse</li>
+                        <li><strong>no-store</strong> — do not store the response</li>
+                        <li><strong>public</strong> — may be stored by shared caches</li>
+                        <li><strong>private</strong> — intended for a private cache</li>
+                    </ul>
+
+                </section>
+
+
+                <!-- =================================================
+                     AUTHENTICATION
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Authentication</h2>
+
+                    <h3>Bearer Token</h3>
+
+                    <pre><code>Authorization: Bearer YOUR_TOKEN</code></pre>
+
+                    <h3>Basic Authentication</h3>
+
+                    <pre><code>Authorization: Basic BASE64_USERNAME_PASSWORD</code></pre>
+
+                    <p>
+                        Never place sensitive credentials directly
+                        into URLs when a safer authentication mechanism
+                        is available.
+                    </p>
+
+                </section>
+
+
+                <!-- =================================================
+                     CORS
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>CORS</h2>
+
+                    <p>
+                        CORS stands for
+                        <strong>Cross-Origin Resource Sharing</strong>.
+                        It controls whether a browser permits a web
+                        page from one origin to access resources from
+                        another origin.
+                    </p>
+
+                    <pre><code>Access-Control-Allow-Origin: https://example.com</code></pre>
+
+                    <h3>Common CORS Headers</h3>
+
+                    <ul>
+                        <li><strong>Access-Control-Allow-Origin</strong></li>
+                        <li><strong>Access-Control-Allow-Methods</strong></li>
+                        <li><strong>Access-Control-Allow-Headers</strong></li>
+                        <li><strong>Access-Control-Allow-Credentials</strong></li>
+                    </ul>
+
+                </section>
+
+
+                <!-- =================================================
+                     PREFLIGHT
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>CORS Preflight</h2>
+
+                    <p>
+                        Browsers can send an
+                        <strong>OPTIONS</strong> request before certain
+                        cross-origin requests to determine whether
+                        the actual request is permitted.
+                    </p>
+
+                    <pre><code>OPTIONS /api/users HTTP/1.1
+Origin: https://example.com
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: Content-Type</code></pre>
+
+                </section>
+
+
+                <!-- =================================================
+                     FETCH
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>JavaScript Fetch</h2>
+
+                    <pre><code>fetch("/api/users")
+    .then(response =&gt; response.json())
+    .then(data =&gt; console.log(data));</code></pre>
+
+                    <h3>POST Request</h3>
+
+                    <pre><code>fetch("/api/users", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        name: "Aryan"
+    })
+});</code></pre>
+
+                </section>
+
+
+                <!-- =================================================
+                     CURL
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>cURL</h2>
+
+                    <h3>GET</h3>
+
+                    <pre><code>curl https://example.com</code></pre>
+
+                    <h3>POST JSON</h3>
+
+                    <pre><code>curl -X POST https://example.com/api/users \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Aryan"}'</code></pre>
+
+                    <h3>Show Response Headers</h3>
+
+                    <pre><code>curl -i https://example.com</code></pre>
+
+                </section>
+
+
+                <!-- =================================================
+                     DEVTOOLS
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Browser DevTools</h2>
+
+                    <p>
+                        When troubleshooting HTTP requests in a browser,
+                        open DevTools and inspect the
+                        <strong>Network</strong> tab.
+                    </p>
+
+                    <ul>
+                        <li>Request URL</li>
+                        <li>Request method</li>
+                        <li>Status code</li>
+                        <li>Request headers</li>
+                        <li>Response headers</li>
+                        <li>Request payload</li>
+                        <li>Response body</li>
+                        <li>Cookies</li>
+                        <li>Timing information</li>
+                    </ul>
+
+                </section>
+
+
+                <!-- =================================================
+                     TROUBLESHOOTING
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Common HTTP Troubleshooting</h2>
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Problem</th>
+                                    <th>Things to Check</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>404</td>
+                                    <td>URL, route, resource name and server configuration</td>
+                                </tr>
+
+                                <tr>
+                                    <td>401</td>
+                                    <td>Credentials, token and authentication configuration</td>
+                                </tr>
+
+                                <tr>
+                                    <td>403</td>
+                                    <td>Permissions, authorization and server access rules</td>
+                                </tr>
+
+                                <tr>
+                                    <td>405</td>
+                                    <td>HTTP method supported by the endpoint</td>
+                                </tr>
+
+                                <tr>
+                                    <td>429</td>
+                                    <td>Rate limits and request frequency</td>
+                                </tr>
+
+                                <tr>
+                                    <td>500</td>
+                                    <td>Server logs and application errors</td>
+                                </tr>
+
+                                <tr>
+                                    <td>502</td>
+                                    <td>Reverse proxy, gateway and upstream server</td>
+                                </tr>
+
+                                <tr>
+                                    <td>503</td>
+                                    <td>Server availability and service health</td>
+                                </tr>
+
+                                <tr>
+                                    <td>504</td>
+                                    <td>Gateway timeout and upstream response time</td>
+                                </tr>
+
+                                <tr>
+                                    <td>CORS error</td>
+                                    <td>Origin and server CORS response headers</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================================
+                     API CHECKLIST
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>API Debugging Checklist</h2>
+
+                    <ol>
+
+                        <li>Check the request URL.</li>
+
+                        <li>Check the HTTP method.</li>
+
+                        <li>Check the status code.</li>
+
+                        <li>Inspect request headers.</li>
+
+                        <li>Inspect the request body.</li>
+
+                        <li>Inspect response headers.</li>
+
+                        <li>Inspect the response body.</li>
+
+                        <li>Check authentication.</li>
+
+                        <li>Check CORS configuration for browser requests.</li>
+
+                        <li>Check server and application logs for server-side errors.</li>
+
+                    </ol>
+
+                </section>
+
+
+                <!-- =================================================
+                     QUICK EVERYDAY REFERENCE
+                ================================================== -->
+
+                <section class="docs-section">
+
+                    <h2>Everyday Reference</h2>
+
+                    <pre><code>GET     /users
+GET     /users/42
+POST    /users
+PUT     /users/42
+PATCH   /users/42
+DELETE  /users/42
+
+200 OK
+201 Created
+204 No Content
+
+301 Redirect
+302 Found
+304 Not Modified
+
+400 Bad Request
+401 Unauthorized
+403 Forbidden
+404 Not Found
+405 Method Not Allowed
+409 Conflict
+422 Unprocessable Content
+429 Too Many Requests
+
+500 Internal Server Error
+502 Bad Gateway
+503 Service Unavailable
+504 Gateway Timeout</code></pre>
+
+                </section>
+
+
+                <!-- =================================================
+                     BACK LINK
+                ================================================== -->
+
+                <div class="docs-back">
+
+                    <a href="../index.html">
+                        ← Back to all cheatsheets
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div>
+                <strong>Dev Cheatsheets</strong>
+
+                <p>
+                    A growing reference for developers.
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    Built with HTML, CSS &amp; JavaScript.
+                </p>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="../js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="MongoDB cheatsheet covering databases, collections, CRUD, queries, operators, indexes, aggregation, and common commands."
+    >
+
+    <title>MongoDB Cheatsheet | Dev Cheatsheets</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a
+                href="../index.html"
+                class="site-logo"
+            >
+                Dev Cheatsheets
+            </a>
+
+            <nav class="main-navigation">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="html.html">
+                    HTML
+                </a>
+
+                <a href="css.html">
+                    CSS
+                </a>
+
+                <a href="js.html">
+                    JavaScript
+                </a>
+
+                <button
+                    id="themeToggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="Switch to dark mode"
+                >
+                    🌙
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="docs-hero">
+
+        <div class="docs-container">
+
+            <div class="hero-text">
+
+                <p class="eyebrow">
+                    DATABASE
+                </p>
+
+                <h1>
+                    MongoDB Cheatsheet
+                </h1>
+
+                <p class="hero-description">
+                    A practical reference for MongoDB databases,
+                    collections, CRUD operations, queries,
+                    operators, indexes, and aggregation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTENT
+    ====================================================== -->
+
+    <main class="docs-content">
+
+        <div class="docs-container">
+
+
+            <!-- =================================================
+                 MONGODB BASICS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    MongoDB Basics
+                </h2>
+
+                <p>
+                    MongoDB is a document-oriented NoSQL database.
+                    Data is stored as BSON documents inside collections.
+                </p>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Concept</th>
+                                <th>MongoDB</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Database</td>
+                                <td>Container for collections</td>
+                            </tr>
+
+                            <tr>
+                                <td>Collection</td>
+                                <td>Container for documents</td>
+                            </tr>
+
+                            <tr>
+                                <td>Document</td>
+                                <td>Record stored as BSON</td>
+                            </tr>
+
+                            <tr>
+                                <td>Field</td>
+                                <td>Key-value pair inside a document</td>
+                            </tr>
+
+                            <tr>
+                                <td>_id</td>
+                                <td>Unique identifier for a document</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 MONGOSH
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    MongoDB Shell
+                </h2>
+
+                <p>
+                    The MongoDB Shell, commonly called
+                    <code>mongosh</code>, is used to interact
+                    with MongoDB from the command line.
+                </p>
+
+                <pre><code>mongosh</code></pre>
+
+                <h3>
+                    Connect to a MongoDB Server
+                </h3>
+
+                <pre><code>mongosh "mongodb://localhost:27017"</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 DATABASE COMMANDS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Database Commands
+                </h2>
+
+                <h3>
+                    Show Databases
+                </h3>
+
+                <pre><code>show dbs</code></pre>
+
+                <h3>
+                    Select a Database
+                </h3>
+
+                <pre><code>use myDatabase</code></pre>
+
+                <p>
+                    MongoDB switches to the specified database.
+                    The database may not appear in
+                    <code>show dbs</code> until data is stored in it.
+                </p>
+
+                <h3>
+                    Show Current Database
+                </h3>
+
+                <pre><code>db</code></pre>
+
+                <h3>
+                    Drop Current Database
+                </h3>
+
+                <pre><code>db.dropDatabase()</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 COLLECTIONS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Collections
+                </h2>
+
+                <h3>
+                    Show Collections
+                </h3>
+
+                <pre><code>show collections</code></pre>
+
+                <h3>
+                    Create a Collection
+                </h3>
+
+                <pre><code>db.createCollection("users")</code></pre>
+
+                <h3>
+                    Drop a Collection
+                </h3>
+
+                <pre><code>db.users.drop()</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 DOCUMENT EXAMPLE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Documents
+                </h2>
+
+                <p>
+                    MongoDB documents use JSON-like syntax.
+                    Internally, MongoDB stores documents as BSON.
+                </p>
+
+                <pre><code>{
+    name: "Aryan",
+    age: 21,
+    email: "aryan@example.com",
+    skills: ["HTML", "CSS", "JavaScript"]
+}</code></pre>
+
+                <p>
+                    Documents can contain nested objects and arrays.
+                </p>
+
+                <pre><code>{
+    name: "Aryan",
+    address: {
+        city: "Chandigarh",
+        country: "India"
+    }
+}</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 INSERT ONE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Insert One Document
+                </h2>
+
+                <pre><code>db.users.insertOne({
+    name: "Aryan",
+    age: 21,
+    email: "aryan@example.com"
+})</code></pre>
+
+                <p>
+                    MongoDB automatically generates an
+                    <code>_id</code> value if one is not supplied.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 INSERT MANY
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Insert Many Documents
+                </h2>
+
+                <pre><code>db.users.insertMany([
+    {
+        name: "Aman",
+        age: 22
+    },
+    {
+        name: "Riya",
+        age: 20
+    },
+    {
+        name: "John",
+        age: 25
+    }
+])</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 FIND
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Find Documents
+                </h2>
+
+                <h3>
+                    Find All
+                </h3>
+
+                <pre><code>db.users.find()</code></pre>
+
+                <h3>
+                    Find One
+                </h3>
+
+                <pre><code>db.users.findOne()</code></pre>
+
+                <h3>
+                    Find by Field
+                </h3>
+
+                <pre><code>db.users.find({
+    age: 21
+})</code></pre>
+
+                <h3>
+                    Find by Multiple Fields
+                </h3>
+
+                <pre><code>db.users.find({
+    age: 21,
+    country: "India"
+})</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROJECTION
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Projection
+                </h2>
+
+                <p>
+                    Projection controls which fields are returned.
+                </p>
+
+                <pre><code>db.users.find(
+    {},
+    {
+        name: 1,
+        email: 1
+    }
+)</code></pre>
+
+                <p>
+                    The <code>_id</code> field is included by default
+                    unless explicitly excluded.
+                </p>
+
+                <pre><code>db.users.find(
+    {},
+    {
+        _id: 0,
+        name: 1,
+        email: 1
+    }
+)</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 COMPARISON OPERATORS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Comparison Operators
+                </h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Operator</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>$eq</code></td>
+                                <td>Equal</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$ne</code></td>
+                                <td>Not equal</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$gt</code></td>
+                                <td>Greater than</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$gte</code></td>
+                                <td>Greater than or equal</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$lt</code></td>
+                                <td>Less than</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$lte</code></td>
+                                <td>Less than or equal</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$in</code></td>
+                                <td>Matches any value in an array</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$nin</code></td>
+                                <td>Matches values not in an array</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <pre><code>db.users.find({
+    age: {
+        $gte: 18
+    }
+})</code></pre>
+
+                <pre><code>db.users.find({
+    age: {
+        $gte: 18,
+        $lte: 30
+    }
+})</code></pre>
+
+                <pre><code>db.users.find({
+    country: {
+        $in: ["India", "Canada", "Japan"]
+    }
+})</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 LOGICAL OPERATORS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Logical Operators
+                </h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Operator</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>$and</code></td>
+                                <td>All conditions must match</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$or</code></td>
+                                <td>At least one condition must match</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$not</code></td>
+                                <td>Negates a condition</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$nor</code></td>
+                                <td>None of the conditions should match</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <pre><code>db.users.find({
+    $or: [
+        { age: 18 },
+        { age: 21 }
+    ]
+})</code></pre>
+
+                <pre><code>db.users.find({
+    $and: [
+        { age: { $gte: 18 } },
+        { country: "India" }
+    ]
+})</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 EXIST
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Check Whether a Field Exists
+                </h2>
+
+                <pre><code>db.users.find({
+    phone: {
+        $exists: true
+    }
+})</code></pre>
+
+                <pre><code>db.users.find({
+    phone: {
+        $exists: false
+    }
+})</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 REGEX
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Regular Expressions
+                </h2>
+
+                <p>
+                    Use regular expressions for pattern matching.
+                </p>
+
+                <pre><code>db.users.find({
+    name: {
+        $regex: "^A"
+    }
+})</code></pre>
+
+                <p>
+                    This example finds names beginning with
+                    the letter <code>A</code>.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 SORT
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Sort
+                </h2>
+
+                <p>
+                    Use <code>1</code> for ascending order and
+                    <code>-1</code> for descending order.
+                </p>
+
+                <pre><code>db.users.find().sort({
+    age: 1
+})</code></pre>
+
+                <pre><code>db.users.find().sort({
+    age: -1
+})</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 LIMIT AND SKIP
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Limit and Skip
+                </h2>
+
+                <h3>
+                    Limit
+                </h3>
+
+                <pre><code>db.users.find().limit(10)</code></pre>
+
+                <h3>
+                    Skip
+                </h3>
+
+                <pre><code>db.users.find().skip(10)</code></pre>
+
+                <h3>
+                    Pagination
+                </h3>
+
+                <pre><code>db.users.find()
+    .skip(20)
+    .limit(10)</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 UPDATE ONE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Update One
+                </h2>
+
+                <pre><code>db.users.updateOne(
+    {
+        name: "Aryan"
+    },
+    {
+        $set: {
+            age: 22
+        }
+    }
+)</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 UPDATE MANY
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Update Many
+                </h2>
+
+                <pre><code>db.users.updateMany(
+    {
+        country: "India"
+    },
+    {
+        $set: {
+            verified: true
+        }
+    }
+)</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 UPDATE OPERATORS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Update Operators
+                </h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Operator</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>$set</code></td>
+                                <td>Set a field value</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$unset</code></td>
+                                <td>Remove a field</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$inc</code></td>
+                                <td>Increment a number</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$mul</code></td>
+                                <td>Multiply a number</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$min</code></td>
+                                <td>Update if the new value is smaller</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$max</code></td>
+                                <td>Update if the new value is larger</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$rename</code></td>
+                                <td>Rename a field</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <pre><code>db.products.updateOne(
+    {
+        name: "Laptop"
+    },
+    {
+        $inc: {
+            stock: 5
+        }
+    }
+)</code></pre>
+
+                <pre><code>db.users.updateOne(
+    {
+        name: "Aryan"
+    },
+    {
+        $unset: {
+            temporaryField: ""
+        }
+    }
+)</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 DELETE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Delete Documents
+                </h2>
+
+                <h3>
+                    Delete One
+                </h3>
+
+                <pre><code>db.users.deleteOne({
+    name: "Aryan"
+})</code></pre>
+
+                <h3>
+                    Delete Many
+                </h3>
+
+                <pre><code>db.users.deleteMany({
+    verified: false
+})</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 COUNT
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Count Documents
+                </h2>
+
+                <pre><code>db.users.countDocuments()</code></pre>
+
+                <pre><code>db.users.countDocuments({
+    country: "India"
+})</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 DISTINCT
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Distinct Values
+                </h2>
+
+                <p>
+                    Return unique values for a field.
+                </p>
+
+                <pre><code>db.users.distinct("country")</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 UPSERT
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Upsert
+                </h2>
+
+                <p>
+                    With <code>upsert: true</code>, MongoDB inserts
+                    a document if no matching document exists.
+                </p>
+
+                <pre><code>db.users.updateOne(
+    {
+        email: "aryan@example.com"
+    },
+    {
+        $set: {
+            name: "Aryan",
+            age: 21
+        }
+    },
+    {
+        upsert: true
+    }
+)</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 ARRAYS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Arrays
+                </h2>
+
+                <h3>
+                    Match an Array Element
+                </h3>
+
+                <pre><code>db.users.find({
+    skills: "JavaScript"
+})</code></pre>
+
+                <h3>
+                    Add to an Array
+                </h3>
+
+                <pre><code>db.users.updateOne(
+    {
+        name: "Aryan"
+    },
+    {
+        $push: {
+            skills: "MongoDB"
+        }
+    }
+)</code></pre>
+
+                <h3>
+                    Add Multiple Values
+                </h3>
+
+                <pre><code>db.users.updateOne(
+    {
+        name: "Aryan"
+    },
+    {
+        $push: {
+            skills: {
+                $each: [
+                    "MongoDB",
+                    "Node.js"
+                ]
+            }
+        }
+    }
+)</code></pre>
+
+                <h3>
+                    Remove an Array Value
+                </h3>
+
+                <pre><code>db.users.updateOne(
+    {
+        name: "Aryan"
+    },
+    {
+        $pull: {
+            skills: "MongoDB"
+        }
+    }
+)</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 EMBEDDED DOCUMENTS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Embedded Documents
+                </h2>
+
+                <p>
+                    MongoDB supports nested documents.
+                </p>
+
+                <pre><code>{
+    name: "Aryan",
+    address: {
+        city: "Chandigarh",
+        country: "India"
+    }
+}</code></pre>
+
+                <p>
+                    Query nested fields using dot notation.
+                </p>
+
+                <pre><code>db.users.find({
+    "address.city": "Chandigarh"
+})</code></pre>
+
+                <pre><code>db.users.find({
+    "address.country": "India"
+})</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 INDEXES
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Indexes
+                </h2>
+
+                <p>
+                    Indexes can improve query performance by allowing
+                    MongoDB to locate matching documents more efficiently.
+                </p>
+
+                <h3>
+                    Create an Index
+                </h3>
+
+                <pre><code>db.users.createIndex({
+    email: 1
+})</code></pre>
+
+                <h3>
+                    Create a Descending Index
+                </h3>
+
+                <pre><code>db.users.createIndex({
+    createdAt: -1
+})</code></pre>
+
+                <h3>
+                    Unique Index
+                </h3>
+
+                <pre><code>db.users.createIndex(
+    {
+        email: 1
+    },
+    {
+        unique: true
+    }
+)</code></pre>
+
+                <h3>
+                    List Indexes
+                </h3>
+
+                <pre><code>db.users.getIndexes()</code></pre>
+
+                <h3>
+                    Drop an Index
+                </h3>
+
+                <pre><code>db.users.dropIndex("email_1")</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 AGGREGATION
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Aggregation
+                </h2>
+
+                <p>
+                    Aggregation processes documents through a pipeline
+                    of stages.
+                </p>
+
+                <h3>
+                    Basic Pipeline
+                </h3>
+
+                <pre><code>db.orders.aggregate([
+    {
+        $match: {
+            status: "completed"
+        }
+    }
+])</code></pre>
+
+                <h3>
+                    Group
+                </h3>
+
+                <pre><code>db.orders.aggregate([
+    {
+        $group: {
+            _id: "$userId",
+            total: {
+                $sum: "$amount"
+            }
+        }
+    }
+])</code></pre>
+
+                <h3>
+                    Sort Aggregation Results
+                </h3>
+
+                <pre><code>db.orders.aggregate([
+    {
+        $group: {
+            _id: "$userId",
+            total: {
+                $sum: "$amount"
+            }
+        }
+    },
+    {
+        $sort: {
+            total: -1
+        }
+    }
+])</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 AGGREGATION STAGES
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Common Aggregation Stages
+                </h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>$match</code></td>
+                                <td>Filter documents</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$group</code></td>
+                                <td>Group documents</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$sort</code></td>
+                                <td>Sort documents</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$limit</code></td>
+                                <td>Limit results</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$skip</code></td>
+                                <td>Skip documents</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$project</code></td>
+                                <td>Choose or transform fields</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$unwind</code></td>
+                                <td>Deconstruct an array field</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>$lookup</code></td>
+                                <td>Join with another collection</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 LOOKUP
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    $lookup
+                </h2>
+
+                <p>
+                    <code>$lookup</code> can combine documents from
+                    another collection.
+                </p>
+
+                <pre><code>db.orders.aggregate([
+    {
+        $lookup: {
+            from: "users",
+            localField: "userId",
+            foreignField: "_id",
+            as: "user"
+        }
+    }
+])</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 DELETE DATABASE DATA WARNING
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Destructive Operations
+                </h2>
+
+                <p>
+                    Commands such as <code>deleteMany()</code>,
+                    <code>drop()</code>, and
+                    <code>dropDatabase()</code> can permanently
+                    remove data.
+                </p>
+
+                <pre><code>db.users.deleteMany({})
+
+db.users.drop()
+
+db.dropDatabase()</code></pre>
+
+                <p>
+                    Use destructive commands carefully, especially
+                    in production environments.
+                </p>
+
+            </section>
+
+
+            <!-- =================================================
+                 COMMON PATTERNS
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Common MongoDB Patterns
+                </h2>
+
+                <h3>
+                    Find Adults
+                </h3>
+
+                <pre><code>db.users.find({
+    age: {
+        $gte: 18
+    }
+})</code></pre>
+
+                <h3>
+                    Find Recent Users
+                </h3>
+
+                <pre><code>db.users.find({
+    createdAt: {
+        $gte: new Date("2026-01-01")
+    }
+})</code></pre>
+
+                <h3>
+                    Sort by Newest
+                </h3>
+
+                <pre><code>db.users.find()
+    .sort({
+        createdAt: -1
+    })</code></pre>
+
+                <h3>
+                    Search and Limit
+                </h3>
+
+                <pre><code>db.users.find({
+    country: "India"
+})
+.sort({
+    createdAt: -1
+})
+.limit(10)</code></pre>
+
+                <h3>
+                    Update a Counter
+                </h3>
+
+                <pre><code>db.products.updateOne(
+    {
+        _id: productId
+    },
+    {
+        $inc: {
+            views: 1
+        }
+    }
+)</code></pre>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK REFERENCE
+            ================================================== -->
+
+            <section class="docs-section">
+
+                <h2>
+                    Quick Reference
+                </h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Operation</th>
+                                <th>Command</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Show databases</td>
+                                <td><code>show dbs</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Use database</td>
+                                <td><code>use databaseName</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Show collections</td>
+                                <td><code>show collections</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Insert one</td>
+                                <td><code>insertOne()</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Insert many</td>
+                                <td><code>insertMany()</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Find</td>
+                                <td><code>find()</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Find one</td>
+                                <td><code>findOne()</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Update one</td>
+                                <td><code>updateOne()</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Update many</td>
+                                <td><code>updateMany()</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Delete one</td>
+                                <td><code>deleteOne()</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Delete many</td>
+                                <td><code>deleteMany()</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Count</td>
+                                <td><code>countDocuments()</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Distinct</td>
+                                <td><code>distinct()</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Create index</td>
+                                <td><code>createIndex()</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Aggregation</td>
+                                <td><code>aggregate()</code></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 BACK
+            ================================================== -->
+
+            <div class="docs-back">
+
+                <a href="../index.html">
+                    ← Back to all cheatsheets
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <p>
+                © <span id="currentYear"></span>
+                Dev Cheatsheets
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

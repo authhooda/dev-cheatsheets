@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Markdown cheatsheet covering headings, text formatting, links, images, lists, tables, code, quotes and GitHub Markdown."
+    >
+
+    <title>Markdown Cheatsheet | Dev Cheatsheets</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a href="../index.html" class="logo">
+                Dev Cheatsheets
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="../index.html#web-development">
+                    Web
+                </a>
+
+                <a href="../index.html#programming">
+                    Programming
+                </a>
+
+                <a href="../index.html#databases">
+                    Databases
+                </a>
+
+                <a href="../index.html#tools">
+                    Tools
+                </a>
+
+            </nav>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle dark mode"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="container hero-text">
+
+                <p class="eyebrow">
+                    DEVELOPMENT TOOLS
+                </p>
+
+                <h1>
+                    Markdown Cheatsheet
+                </h1>
+
+                <p class="hero-description">
+                    A practical reference for writing README files,
+                    documentation, notes and formatted content.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK REFERENCE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Quick Reference
+            </h2>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Markdown</th>
+                            <th>Result</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td><code># Heading</code></td>
+                            <td>Heading 1</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>**bold**</code></td>
+                            <td><strong>Bold text</strong></td>
+                        </tr>
+
+                        <tr>
+                            <td><code>*italic*</code></td>
+                            <td><em>Italic text</em></td>
+                        </tr>
+
+                        <tr>
+                            <td><code>[Link](URL)</code></td>
+                            <td>Clickable link</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>![Alt](image.jpg)</code></td>
+                            <td>Image</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>- Item</code></td>
+                            <td>Unordered list</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>1. Item</code></td>
+                            <td>Ordered list</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>`code`</code></td>
+                            <td>Inline code</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>&gt; Quote</code></td>
+                            <td>Blockquote</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>---</code></td>
+                            <td>Horizontal rule</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HEADINGS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Headings
+            </h2>
+
+            <p>
+                Use the <code>#</code> symbol to create headings.
+                More <code>#</code> symbols create smaller headings.
+            </p>
+
+            <pre><code># Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             PARAGRAPHS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Paragraphs &amp; Line Breaks
+            </h2>
+
+            <h3>
+                Paragraph
+            </h3>
+
+            <pre><code>This is a paragraph.
+
+This is another paragraph.</code></pre>
+
+            <h3>
+                Line Break
+            </h3>
+
+            <p>
+                Two spaces at the end of a line can create a
+                line break in many Markdown implementations.
+            </p>
+
+            <pre><code>First line  
+Second line</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             TEXT FORMATTING
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Text Formatting
+            </h2>
+
+            <h3>
+                Bold
+            </h3>
+
+            <pre><code>**Bold text**</code></pre>
+
+            <h3>
+                Italic
+            </h3>
+
+            <pre><code>*Italic text*</code></pre>
+
+            <h3>
+                Bold and Italic
+            </h3>
+
+            <pre><code>***Bold and italic text***</code></pre>
+
+            <h3>
+                Strikethrough
+            </h3>
+
+            <pre><code>~~Deleted text~~</code></pre>
+
+            <h3>
+                Inline Code
+            </h3>
+
+            <pre><code>`console.log("Hello")`</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             LINKS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Links
+            </h2>
+
+            <h3>
+                Basic Link
+            </h3>
+
+            <pre><code>[Visit GitHub](https://github.com)</code></pre>
+
+            <h3>
+                Link With Title
+            </h3>
+
+            <pre><code>[GitHub](https://github.com "GitHub Website")</code></pre>
+
+            <h3>
+                Email Link
+            </h3>
+
+            <pre><code>&lt;hello@example.com&gt;</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             IMAGES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Images
+            </h2>
+
+            <h3>
+                Basic Image
+            </h3>
+
+            <pre><code>![Alt text](image.jpg)</code></pre>
+
+            <h3>
+                Image With Title
+            </h3>
+
+            <pre><code>![Logo](logo.png "Project Logo")</code></pre>
+
+            <h3>
+                Image From a URL
+            </h3>
+
+            <pre><code>![Example](https://example.com/image.png)</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             LISTS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Lists
+            </h2>
+
+            <h3>
+                Unordered List
+            </h3>
+
+            <pre><code>- HTML
+- CSS
+- JavaScript</code></pre>
+
+            <h3>
+                Alternative Unordered List
+            </h3>
+
+            <pre><code>* HTML
+* CSS
+* JavaScript</code></pre>
+
+            <h3>
+                Ordered List
+            </h3>
+
+            <pre><code>1. Install dependencies
+2. Write code
+3. Test the application</code></pre>
+
+            <h3>
+                Nested List
+            </h3>
+
+            <pre><code>- Frontend
+  - HTML
+  - CSS
+  - JavaScript
+
+- Backend
+  - Python
+  - Node.js</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             CHECKLIST
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Task Lists
+            </h2>
+
+            <p>
+                GitHub Markdown supports checkboxes for task lists.
+            </p>
+
+            <pre><code>- [ ] Todo
+- [x] Completed task
+- [ ] Another task</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             BLOCKQUOTES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Blockquotes
+            </h2>
+
+            <h3>
+                Basic Quote
+            </h3>
+
+            <pre><code>&gt; This is a quote.</code></pre>
+
+            <h3>
+                Nested Quote
+            </h3>
+
+            <pre><code>&gt; Main quote
+&gt;
+&gt; &gt; Nested quote</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             HORIZONTAL RULE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Horizontal Rules
+            </h2>
+
+            <p>
+                Use three or more hyphens, asterisks or underscores.
+            </p>
+
+            <pre><code>---
+
+***
+
+___</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             CODE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Code Blocks
+            </h2>
+
+            <h3>
+                Inline Code
+            </h3>
+
+            <pre><code>`const name = "Aryan";`</code></pre>
+
+            <h3>
+                Fenced Code Block
+            </h3>
+
+            <p>
+                Use three backticks around multi-line code.
+            </p>
+
+            <pre><code>```javascript
+const message = "Hello";
+
+console.log(message);
+```</code></pre>
+
+            <h3>
+                Bash Example
+            </h3>
+
+            <pre><code>```bash
+npm install
+npm start
+```</code></pre>
+
+            <h3>
+                Python Example
+            </h3>
+
+            <pre><code>```python
+name = "Aryan"
+
+print(name)
+```</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             TABLES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Tables
+            </h2>
+
+            <p>
+                Tables use pipes and hyphens.
+            </p>
+
+            <pre><code>| Name | Language |
+| --- | --- |
+| HTML | Markup |
+| CSS | Styling |
+| JavaScript | Programming |</code></pre>
+
+            <h3>
+                Alignment
+            </h3>
+
+            <pre><code>| Left | Center | Right |
+| :--- | :---: | ---: |
+| A | B | C |
+| D | E | F |</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             ESCAPING
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Escaping Characters
+            </h2>
+
+            <p>
+                Use a backslash when you want Markdown to display
+                a special character instead of interpreting it.
+            </p>
+
+            <pre><code>\*Not italic\*
+
+\# Not a heading
+
+\[Not a link\]</code></pre>
+
+            <h3>
+                Common Characters to Escape
+            </h3>
+
+            <pre><code>\*
+\_
+\#
+\+
+\-
+\.
+\!
+\[
+\]</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             HTML
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                HTML Inside Markdown
+            </h2>
+
+            <p>
+                Many Markdown implementations allow HTML to be
+                included directly in Markdown documents.
+            </p>
+
+            <pre><code>&lt;div&gt;
+    Custom HTML content
+&lt;/div&gt;</code></pre>
+
+            <p>
+                Support for specific HTML elements can vary between
+                Markdown processors.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             DETAILS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Collapsible Sections
+            </h2>
+
+            <p>
+                GitHub supports HTML details elements in Markdown.
+            </p>
+
+            <pre><code>&lt;details&gt;
+
+&lt;summary&gt;Click to expand&lt;/summary&gt;
+
+Hidden content goes here.
+
+&lt;/details&gt;</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             COMMENTS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                HTML Comments
+            </h2>
+
+            <p>
+                HTML comments can be used when your Markdown
+                processor allows HTML.
+            </p>
+
+            <pre><code>&lt;!-- This comment will not normally appear on the page. --&gt;</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             BADGES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                GitHub README Badges
+            </h2>
+
+            <p>
+                Badges are commonly used in README files to show
+                information such as build status, version or license.
+            </p>
+
+            <pre><code>[![Build Status](https://example.com/status.svg)](https://example.com)
+
+![License](https://img.shields.io/badge/license-MIT-blue)</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             LINKS WITH REFERENCES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Reference Links
+            </h2>
+
+            <p>
+                Reference-style links can keep long URLs separate
+                from the main text.
+            </p>
+
+            <pre><code>[GitHub][github]
+
+[github]: https://github.com</code></pre>
+
+            <h3>
+                Multiple References
+            </h3>
+
+            <pre><code>Visit [GitHub][github] or [MDN][mdn].
+
+[github]: https://github.com
+[mdn]: https://developer.mozilla.org</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             README STRUCTURE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Recommended README Structure
+            </h2>
+
+            <pre><code># Project Name
+
+Short description.
+
+## Features
+
+- Feature one
+- Feature two
+
+## Installation
+
+Explain how to install the project.
+
+## Usage
+
+Explain how to use it.
+
+## Configuration
+
+Explain important configuration options.
+
+## Contributing
+
+Explain how others can contribute.
+
+## License
+
+Add the project license.</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             GITHUB MARKDOWN
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                GitHub Markdown Tips
+            </h2>
+
+            <ul>
+
+                <li>
+                    Use headings to organize long README files.
+                </li>
+
+                <li>
+                    Use code blocks for commands and source code.
+                </li>
+
+                <li>
+                    Use tables for structured information.
+                </li>
+
+                <li>
+                    Use task lists for checklists.
+                </li>
+
+                <li>
+                    Use links to connect documentation and resources.
+                </li>
+
+                <li>
+                    Keep README files easy to scan.
+                </li>
+
+                <li>
+                    Preview Markdown before committing documentation changes.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =================================================
+             EVERYDAY REFERENCE
+        ================================================== -->
+
+                <section class="container cheatsheet-section">
+
+            <h2>
+                Everyday Markdown Reference
+            </h2>
+
+            <pre><code># Heading
+
+## Subheading
+
+**bold**
+
+*italic*
+
+~~strikethrough~~
+
+[Link](https://example.com)
+
+![Image](image.png)
+
+- Item
+- Item
+
+1. Item
+2. Item
+
+> Quote
+
+`inline code`
+
+```text
+code block
+```</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             BACK LINK
+        ================================================== -->
+
+        <div class="docs-back">
+
+            <a href="../index.html">
+                ← Back to all cheatsheets
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+        <div>
+            <strong>Dev Cheatsheets</strong>
+
+            <p>
+                A growing reference for developers.
+            </p>
+        </div>
+
+        <div>
+            <p>
+                Built with HTML, CSS &amp; JavaScript.
+            </p>
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="../js/app.js"></script>
+
+</body>
+</html>

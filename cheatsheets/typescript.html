@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TypeScript Cheatsheet | Dev Cheatsheets</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+    <div class="header-container">
+
+        <a
+            href="../index.html"
+            class="logo"
+        >
+            Dev Cheatsheets
+        </a>
+
+
+        <nav class="main-navigation">
+
+            <a href="../index.html">
+                Home
+            </a>
+
+            <a href="html.html">
+                HTML
+            </a>
+
+            <a href="css.html">
+                CSS
+            </a>
+
+            <a href="js.html">
+                JavaScript
+            </a>
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Switch to dark mode"
+            >
+                🌙
+            </button>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<section class="docs-hero">
+
+    <div class="docs-container">
+
+        <p class="eyebrow">
+            Programming
+        </p>
+
+        <div class="hero-text">
+
+            <h1>
+                TypeScript
+            </h1>
+
+            <p>
+                A practical TypeScript reference covering
+                types, interfaces, functions, generics,
+                classes, narrowing, utility types, modules,
+                and common patterns.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<div class="docs-content">
+
+
+
+<!-- =====================================================
+     BASICS
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            TypeScript Basics
+        </h2>
+
+        <p>
+            TypeScript adds static type checking and other
+            features to JavaScript while compiling to
+            JavaScript.
+        </p>
+
+
+        <h3>
+            Basic Example
+        </h3>
+
+        <pre><code>let message: string = "Hello TypeScript";
+
+console.log(message);</code></pre>
+
+
+        <h3>
+            Compile TypeScript
+        </h3>
+
+        <pre><code>tsc app.ts</code></pre>
+
+
+        <h3>
+            Run the JavaScript
+        </h3>
+
+        <pre><code>node app.js</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TYPES
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Basic Types
+        </h2>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Type</th>
+                        <th>Example</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>string</td>
+                        <td><code>"Hello"</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>number</td>
+                        <td><code>42</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>boolean</td>
+                        <td><code>true</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>array</td>
+                        <td><code>number[]</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>tuple</td>
+                        <td><code>[string, number]</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>object</td>
+                        <td><code>{ name: string }</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>any</td>
+                        <td><code>any</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>unknown</td>
+                        <td><code>unknown</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>void</td>
+                        <td><code>void</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>never</td>
+                        <td><code>never</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>null</td>
+                        <td><code>null</code></td>
+                    </tr>
+
+                    <tr>
+                        <td>undefined</td>
+                        <td><code>undefined</code></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <h3>
+            Strings
+        </h3>
+
+        <pre><code>let name: string = "Aryan";</code></pre>
+
+
+        <h3>
+            Numbers
+        </h3>
+
+        <pre><code>let age: number = 20;
+
+let price: number = 99.99;</code></pre>
+
+
+        <h3>
+            Booleans
+        </h3>
+
+        <pre><code>let isActive: boolean = true;</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VARIABLES
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Variables
+        </h2>
+
+
+        <h3>
+            let
+        </h3>
+
+        <pre><code>let age: number = 20;
+
+age = 21;</code></pre>
+
+
+        <h3>
+            const
+        </h3>
+
+        <pre><code>const siteName: string = "Dev Cheatsheets";</code></pre>
+
+
+        <h3>
+            Type Inference
+        </h3>
+
+        <pre><code>let username = "Aryan";
+
+let score = 100;</code></pre>
+
+        <p>
+            TypeScript can often infer the type automatically,
+            so an explicit annotation is not always necessary.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ARRAYS
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Arrays
+        </h2>
+
+
+        <h3>
+            Array Syntax
+        </h3>
+
+        <pre><code>let numbers: number[] = [1, 2, 3, 4];
+
+let names: string[] = [
+    "Aryan",
+    "John",
+    "Alex"
+];</code></pre>
+
+
+        <h3>
+            Generic Array Syntax
+        </h3>
+
+        <pre><code>let numbers: Array&lt;number&gt; = [1, 2, 3];</code></pre>
+
+
+        <h3>
+            Readonly Array
+        </h3>
+
+        <pre><code>const numbers: readonly number[] = [1, 2, 3];</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TUPLES
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Tuples
+        </h2>
+
+        <p>
+            A tuple represents an array with a fixed number
+            of elements and known types.
+        </p>
+
+
+        <pre><code>let user: [string, number] = [
+    "Aryan",
+    20
+];</code></pre>
+
+
+        <h3>
+            Access Tuple Values
+        </h3>
+
+        <pre><code>console.log(user[0]);
+console.log(user[1]);</code></pre>
+
+
+        <h3>
+            Named Tuple Elements
+        </h3>
+
+        <pre><code>let person: [
+    name: string,
+    age: number
+] = ["Aryan", 20];</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OBJECTS
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Objects
+        </h2>
+
+
+        <h3>
+            Object Type
+        </h3>
+
+        <pre><code>let user: {
+    name: string;
+    age: number;
+} = {
+    name: "Aryan",
+    age: 20
+};</code></pre>
+
+
+        <h3>
+            Optional Properties
+        </h3>
+
+        <pre><code>let user: {
+    name: string;
+    age?: number;
+} = {
+    name: "Aryan"
+};</code></pre>
+
+
+        <h3>
+            Readonly Properties
+        </h3>
+
+        <pre><code>let user: {
+    readonly id: number;
+    name: string;
+} = {
+    id: 1,
+    name: "Aryan"
+};</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTERFACES
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Interfaces
+        </h2>
+
+        <p>
+            Interfaces describe the structure that an object
+            should follow.
+        </p>
+
+
+        <h3>
+            Basic Interface
+        </h3>
+
+        <pre><code>interface User {
+    name: string;
+    age: number;
+}
+
+const user: User = {
+    name: "Aryan",
+    age: 20
+};</code></pre>
+
+
+        <h3>
+            Optional Properties
+        </h3>
+
+        <pre><code>interface User {
+    name: string;
+    age?: number;
+}</code></pre>
+
+
+        <h3>
+            Readonly Property
+        </h3>
+
+        <pre><code>interface User {
+    readonly id: number;
+    name: string;
+}</code></pre>
+
+
+        <h3>
+            Extending Interfaces
+        </h3>
+
+        <pre><code>interface Person {
+    name: string;
+}
+
+interface Employee extends Person {
+    employeeId: number;
+}</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TYPE ALIASES
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Type Aliases
+        </h2>
+
+
+        <h3>
+            Basic Type Alias
+        </h3>
+
+        <pre><code>type UserName = string;
+
+let name: UserName = "Aryan";</code></pre>
+
+
+        <h3>
+            Object Type
+        </h3>
+
+        <pre><code>type User = {
+    name: string;
+    age: number;
+};</code></pre>
+
+
+        <h3>
+            Union Type
+        </h3>
+
+        <pre><code>type ID = string | number;
+
+let userId: ID = 101;
+
+userId = "abc123";</code></pre>
+
+
+        <h3>
+            Intersection Type
+        </h3>
+
+        <pre><code>type Person = {
+    name: string;
+};
+
+type Employee = {
+    employeeId: number;
+};
+
+type Staff = Person & Employee;</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     UNION AND LITERAL TYPES
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Union & Literal Types
+        </h2>
+
+
+        <h3>
+            Union
+        </h3>
+
+        <pre><code>let value: string | number;
+
+value = "Hello";
+value = 100;</code></pre>
+
+
+        <h3>
+            Literal Types
+        </h3>
+
+        <pre><code>let direction: "left" | "right";
+
+direction = "left";</code></pre>
+
+
+        <h3>
+            Literal Type with Function
+        </h3>
+
+        <pre><code>function move(
+    direction: "up" | "down"
+) {
+    console.log(direction);
+}
+
+move("up");</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FUNCTIONS
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Functions
+        </h2>
+
+
+        <h3>
+            Function Parameters
+        </h3>
+
+        <pre><code>function add(
+    a: number,
+    b: number
+) {
+    return a + b;
+}</code></pre>
+
+
+        <h3>
+            Return Type
+        </h3>
+
+        <pre><code>function greet(
+    name: string
+): string {
+    return `Hello ${name}`;
+}</code></pre>
+
+
+        <h3>
+            void
+        </h3>
+
+        <pre><code>function logMessage(
+    message: string
+): void {
+    console.log(message);
+}</code></pre>
+
+
+        <h3>
+            Optional Parameter
+        </h3>
+
+        <pre><code>function greet(
+    name?: string
+): string {
+    return `Hello ${name ?? "Guest"}`;
+}</code></pre>
+
+
+        <h3>
+            Default Parameter
+        </h3>
+
+        <pre><code>function greet(
+    name: string = "Guest"
+): string {
+    return `Hello ${name}`;
+}</code></pre>
+
+
+        <h3>
+            Function Type
+        </h3>
+
+        <pre><code>let operation: (
+    a: number,
+    b: number
+) => number;
+
+operation = (a, b) => a + b;</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ANY UNKNOWN NEVER
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            any, unknown & never
+        </h2>
+
+
+        <h3>
+            any
+        </h3>
+
+        <pre><code>let value: any = 10;
+
+value = "Hello";
+value = true;</code></pre>
+
+        <p>
+            <code>any</code> disables most type checking for
+            that value and should generally be used carefully.
+        </p>
+
+
+        <h3>
+            unknown
+        </h3>
+
+        <pre><code>let value: unknown = "Hello";
+
+if (typeof value === "string") {
+    console.log(value.toUpperCase());
+}</code></pre>
+
+
+        <h3>
+            never
+        </h3>
+
+        <pre><code>function fail(message: string): never {
+    throw new Error(message);
+}</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TYPE NARROWING
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Type Narrowing
+        </h2>
+
+        <p>
+            Type narrowing lets TypeScript determine a more
+            specific type inside a particular block of code.
+        </p>
+
+
+        <h3>
+            typeof
+        </h3>
+
+        <pre><code>function printValue(
+    value: string | number
+) {
+
+    if (typeof value === "string") {
+        console.log(value.toUpperCase());
+    } else {
+        console.log(value.toFixed(2));
+    }
+
+}</code></pre>
+
+
+        <h3>
+            instanceof
+        </h3>
+
+        <pre><code>function printDate(
+    value: Date | string
+) {
+
+    if (value instanceof Date) {
+        console.log(value.toISOString());
+    } else {
+        console.log(value);
+    }
+
+}</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TYPE ASSERTIONS
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Type Assertions
+        </h2>
+
+
+        <h3>
+            as Syntax
+        </h3>
+
+        <pre><code>const value: unknown = "Hello";
+
+const message = value as string;
+
+console.log(message.length);</code></pre>
+
+
+        <h3>
+            Angle Bracket Syntax
+        </h3>
+
+        <pre><code>const value: unknown = "Hello";
+
+const message = &lt;string&gt;value;</code></pre>
+
+        <p>
+            The <code>as</code> syntax is commonly preferred,
+            especially in codebases that use JSX.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GENERICS
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Generics
+        </h2>
+
+        <p>
+            Generics allow reusable code to work with different
+            types while preserving type information.
+        </p>
+
+
+        <h3>
+            Generic Function
+        </h3>
+
+        <pre><code>function identity&lt;T&gt;(
+    value: T
+): T {
+    return value;
+}
+
+const numberValue = identity(100);
+const stringValue = identity("Hello");</code></pre>
+
+
+        <h3>
+            Generic Array
+        </h3>
+
+        <pre><code>function first&lt;T&gt;(
+    items: T[]
+): T {
+    return items[0];
+}
+
+const result = first([1, 2, 3]);</code></pre>
+
+
+        <h3>
+            Generic Interface
+        </h3>
+
+        <pre><code>interface Box&lt;T&gt; {
+    value: T;
+}
+
+const numberBox: Box&lt;number&gt; = {
+    value: 100
+};</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ENUMS
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Enums
+        </h2>
+
+
+        <h3>
+            Numeric Enum
+        </h3>
+
+        <pre><code>enum Direction {
+    Up,
+    Down,
+    Left,
+    Right
+}
+
+const direction = Direction.Up;</code></pre>
+
+
+        <h3>
+            String Enum
+        </h3>
+
+        <pre><code>enum Status {
+    Success = "success",
+    Error = "error",
+    Loading = "loading"
+}
+
+const status = Status.Success;</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CLASSES
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Classes
+        </h2>
+
+
+        <h3>
+            Basic Class
+        </h3>
+
+        <pre><code>class Person {
+
+    name: string;
+    age: number;
+
+    constructor(
+        name: string,
+        age: number
+    ) {
+        this.name = name;
+        this.age = age;
+    }
+
+    greet(): string {
+        return `Hello ${this.name}`;
+    }
+}
+
+
+const person = new Person(
+    "Aryan",
+    20
+);</code></pre>
+
+
+        <h3>
+            Access Modifiers
+        </h3>
+
+        <pre><code>class User {
+
+    public name: string;
+
+    private password: string;
+
+    protected role: string;
+
+    constructor(
+        name: string,
+        password: string
+    ) {
+        this.name = name;
+        this.password = password;
+        this.role = "user";
+    }
+
+}</code></pre>
+
+
+        <h3>
+            Readonly
+        </h3>
+
+        <pre><code>class User {
+
+    readonly id: number;
+
+    constructor(id: number) {
+        this.id = id;
+    }
+
+}</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     UTILITY TYPES
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Utility Types
+        </h2>
+
+
+        <h3>
+            Partial
+        </h3>
+
+        <pre><code>interface User {
+    name: string;
+    age: number;
+}
+
+const updateUser = (
+    user: Partial&lt;User&gt;
+) => {
+    console.log(user);
+};</code></pre>
+
+
+        <h3>
+            Required
+        </h3>
+
+        <pre><code>interface User {
+    name: string;
+    age?: number;
+}
+
+const user: Required&lt;User&gt; = {
+    name: "Aryan",
+    age: 20
+};</code></pre>
+
+
+        <h3>
+            Pick
+        </h3>
+
+        <pre><code>interface User {
+    name: string;
+    age: number;
+    email: string;
+}
+
+type UserPreview = Pick&lt;
+    User,
+    "name" | "email"
+&gt;;</code></pre>
+
+
+        <h3>
+            Omit
+        </h3>
+
+        <pre><code>type UserWithoutEmail = Omit&lt;
+    User,
+    "email"
+&gt;;</code></pre>
+
+
+        <h3>
+            Record
+        </h3>
+
+        <pre><code>type UserRoles = Record&lt;
+    string,
+    string
+&gt;;
+
+const roles: UserRoles = {
+    admin: "Administrator",
+    user: "User"
+};</code></pre>
+
+
+        <h3>
+            Readonly
+        </h3>
+
+        <pre><code>interface User {
+    name: string;
+    age: number;
+}
+
+const user: Readonly&lt;User&gt; = {
+    name: "Aryan",
+    age: 20
+};</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     KEYOF
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            keyof
+        </h2>
+
+        <p>
+            The <code>keyof</code> operator creates a union
+            of the property names of a type.
+        </p>
+
+
+        <pre><code>interface User {
+    name: string;
+    age: number;
+}
+
+type UserKey = keyof User;
+
+// "name" | "age"</code></pre>
+
+
+        <h3>
+            Using keyof
+        </h3>
+
+        <pre><code>function getValue&lt;T, K extends keyof T&gt;(
+    object: T,
+    key: K
+): T[K] {
+    return object[key];
+}
+
+const user = {
+    name: "Aryan",
+    age: 20
+};
+
+const name = getValue(user, "name");</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MODULES
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Modules
+        </h2>
+
+
+        <h3>
+            Export
+        </h3>
+
+        <pre><code>export const name: string = "Aryan";
+
+export function greet(
+    name: string
+): string {
+    return `Hello ${name}`;
+}</code></pre>
+
+
+        <h3>
+            Import
+        </h3>
+
+        <pre><code>import {
+    name,
+    greet
+} from "./user";</code></pre>
+
+
+        <h3>
+            Default Export
+        </h3>
+
+        <pre><code>export default function greet() {
+    console.log("Hello");
+}</code></pre>
+
+
+        <h3>
+            Default Import
+        </h3>
+
+        <pre><code>import greet from "./greet";</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ASYNC TYPES
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Async Functions
+        </h2>
+
+
+        <h3>
+            Promise
+        </h3>
+
+        <pre><code>function getUser(): Promise&lt;string&gt; {
+    return Promise.resolve("Aryan");
+}</code></pre>
+
+
+        <h3>
+            async / await
+        </h3>
+
+        <pre><code>async function loadUser(): Promise&lt;string&gt; {
+
+    const user = await getUser();
+
+    return user;
+}</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TS CONFIG
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            tsconfig.json
+        </h2>
+
+        <p>
+            A <code>tsconfig.json</code> file defines compiler
+            options for a TypeScript project.
+        </p>
+
+
+        <h3>
+            Example
+        </h3>
+
+        <pre><code>{
+    "compilerOptions": {
+        "target": "ES2020",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "outDir": "./dist"
+    },
+    "include": [
+        "src/**/*"
+    ]
+}</code></pre>
+
+
+        <h3>
+            Create tsconfig
+        </h3>
+
+        <pre><code>tsc --init</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TYPE CHECKING
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Type Checking
+        </h2>
+
+
+        <h3>
+            Check Without Emitting
+        </h3>
+
+        <pre><code>tsc --noEmit</code></pre>
+
+
+        <h3>
+            Strict Mode
+        </h3>
+
+        <pre><code>{
+    "compilerOptions": {
+        "strict": true
+    }
+}</code></pre>
+
+        <p>
+            Strict mode enables a collection of stronger
+            type-checking options.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COMMON PATTERNS
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Common Patterns
+        </h2>
+
+
+        <h3>
+            Optional Chaining
+        </h3>
+
+        <pre><code>const city = user?.address?.city;</code></pre>
+
+
+        <h3>
+            Nullish Coalescing
+        </h3>
+
+        <pre><code>const name =
+    user.name ?? "Guest";</code></pre>
+
+
+        <h3>
+            Type Guard
+        </h3>
+
+        <pre><code>function isString(
+    value: unknown
+): value is string {
+    return typeof value === "string";
+}
+
+const value: unknown = "Hello";
+
+if (isString(value)) {
+    console.log(value.toUpperCase());
+}</code></pre>
+
+
+        <h3>
+            Readonly Object
+        </h3>
+
+        <pre><code>const config = {
+    host: "localhost",
+    port: 3000
+} as const;</code></pre>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUICK REFERENCE
+===================================================== -->
+
+<section class="docs-section">
+
+    <div class="docs-container">
+
+        <h2>
+            Quick Reference
+        </h2>
+
+        <ul>
+
+            <li>
+                <code>string</code> — text values
+            </li>
+
+            <li>
+                <code>number</code> — numeric values
+            </li>
+
+            <li>
+                <code>boolean</code> — true / false
+            </li>
+
+            <li>
+                <code>interface</code> — describe object structure
+            </li>
+
+            <li>
+                <code>type</code> — create type aliases
+            </li>
+
+            <li>
+                <code>|</code> — union types
+            </li>
+
+            <li>
+                <code>&amp;</code> — intersection types
+            </li>
+
+            <li>
+                <code>extends</code> — inheritance or generic constraints
+            </li>
+
+            <li>
+                <code>keyof</code> — property keys of a type
+            </li>
+
+            <li>
+                <code>Partial&lt;T&gt;</code> — make properties optional
+            </li>
+
+            <li>
+                <code>Pick&lt;T, K&gt;</code> — select properties
+            </li>
+
+            <li>
+                <code>Omit&lt;T, K&gt;</code> — remove properties
+            </li>
+
+            <li>
+                <code>Record&lt;K, T&gt;</code> — create mapped object types
+            </li>
+
+            <li>
+                <code>unknown</code> — safely represent an unknown value
+            </li>
+
+            <li>
+                <code>never</code> — represents values that never occur
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+
+</div>
+
+
+
+<div class="docs-back">
+
+    <div class="docs-container">
+
+        <a href="../index.html">
+            ← Back to all cheatsheets
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+        <p>
+            © <span id="currentYear"></span>
+            Dev Cheatsheets
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<script src="../js/app.js"></script>
+
+</body>
+
+</html>

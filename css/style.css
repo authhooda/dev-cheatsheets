@@ -1,0 +1,1807 @@
+/* =========================================================
+   DEV CHEATSHEETS
+   Shared Design System
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+
+    line-height: 1.6;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* =========================================================
+   DESIGN TOKENS
+========================================================= */
+
+:root {
+
+    --background: #ffffff;
+    --surface: #f8fafc;
+    --surface-hover: #f1f5f9;
+
+    --text: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+
+    --border: #e2e8f0;
+
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --accent-soft: #eff6ff;
+
+    --code-background: #0f172a;
+    --code-text: #e2e8f0;
+
+    --header-background: rgba(255, 255, 255, 0.88);
+
+    --shadow-sm:
+        0 1px 2px rgba(15, 23, 42, 0.04);
+
+    --shadow-md:
+        0 12px 35px rgba(15, 23, 42, 0.08);
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+
+    --container: 1180px;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark {
+
+    --background: #0b1120;
+    --surface: #111827;
+    --surface-hover: #1e293b;
+
+    --text: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+
+    --border: #1e293b;
+
+    --accent: #60a5fa;
+    --accent-hover: #93c5fd;
+    --accent-soft: #172554;
+
+    --code-background: #020617;
+    --code-text: #e2e8f0;
+
+    --header-background: rgba(11, 17, 32, 0.9);
+
+    --shadow-sm:
+        0 1px 2px rgba(0, 0, 0, 0.3);
+
+    --shadow-md:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   SHARED CONTAINER
+========================================================= */
+
+.container,
+.header-container,
+.hero-content,
+.cheatsheets-container,
+.footer-container {
+
+    width:
+        min(
+            calc(100% - 40px),
+            var(--container)
+        );
+
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    height: 68px;
+
+    background:
+        var(--header-background);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+.header-container,
+.header-inner {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+}
+
+
+/* Logo */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    white-space: nowrap;
+
+    font-size: 1.05rem;
+
+    font-weight: 800;
+
+    letter-spacing: -0.025em;
+}
+
+.logo::before {
+
+    content: "</>";
+
+    margin-right: 9px;
+
+    color:
+        var(--accent);
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-weight: 700;
+}
+
+
+/* Navigation */
+
+.main-navigation,
+.main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    margin-left: auto;
+}
+
+.main-navigation a,
+.main-nav a {
+
+    padding:
+        7px
+        10px;
+
+    border-radius:
+        var(--radius-sm);
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        0.85rem;
+
+    font-weight:
+        500;
+
+    transition:
+        color 0.15s ease,
+        background 0.15s ease;
+}
+
+.main-navigation a:hover,
+.main-nav a:hover {
+
+    color:
+        var(--text);
+
+    background:
+        var(--surface-hover);
+}
+
+.main-navigation a {
+
+    padding:
+        7px
+        10px;
+
+    border-radius:
+        var(--radius-sm);
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        0.85rem;
+
+    font-weight:
+        500;
+
+    transition:
+        color 0.15s ease,
+        background 0.15s ease;
+}
+
+.main-navigation a:hover {
+
+    color:
+        var(--text);
+
+    background:
+        var(--surface-hover);
+}
+
+
+/* Theme button */
+
+.theme-toggle {
+
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        9px;
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease;
+}
+
+.theme-toggle:hover {
+
+    transform:
+        translateY(-1px);
+
+    background:
+        var(--surface-hover);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    padding:
+        105px
+        0
+        90px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            var(--accent-soft),
+            transparent 55%
+        );
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+
+/* Hero label */
+
+.hero-label {
+
+    display: inline-flex;
+
+    padding:
+        6px
+        10px;
+
+    margin-bottom:
+        22px;
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--accent) 25%,
+            var(--border)
+        );
+
+    border-radius:
+        999px;
+
+    color:
+        var(--accent);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--accent-soft) 70%,
+            transparent
+        );
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.13em;
+}
+
+
+/* Hero heading */
+
+.hero h1 {
+
+    max-width:
+        850px;
+
+    margin-bottom:
+        24px;
+
+    font-size:
+        clamp(
+            2.8rem,
+            7vw,
+            5.3rem
+        );
+
+    line-height:
+        0.98;
+
+    letter-spacing:
+        -0.065em;
+}
+
+.hero h1 span {
+
+    color:
+        var(--text-muted);
+}
+
+
+/* Hero description */
+
+.hero-description {
+
+    /* Cheatsheet page hero */
+
+.eyebrow {
+
+    display: inline-flex;
+
+    padding:
+        6px
+        10px;
+
+    margin-bottom:
+        22px;
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--accent) 25%,
+            var(--border)
+        );
+
+    border-radius:
+        999px;
+
+    color:
+        var(--accent);
+
+    background:
+        var(--accent-soft);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.13em;
+}
+
+.hero-text {
+
+    max-width:
+        760px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.75;
+}
+
+    max-width:
+        680px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        1.08rem;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-container {
+
+    position: relative;
+
+    max-width:
+        650px;
+
+    margin-top:
+        35px;
+}
+
+#cheatsheetSearch {
+
+    width:
+        100%;
+
+    height:
+        54px;
+
+    padding:
+        0
+        48px
+        0
+        18px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        10px;
+
+    outline:
+        none;
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+#cheatsheetSearch:focus {
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 0 0 4px
+        color-mix(
+            in srgb,
+            var(--accent) 12%,
+            transparent
+        );
+}
+
+#cheatsheetSearch::placeholder {
+
+    color:
+        var(--text-muted);
+}
+
+.search-icon {
+
+    position: absolute;
+
+    right:
+        17px;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        var(--text-muted);
+
+    pointer-events:
+        none;
+}
+
+
+/* =========================================================
+   HOMEPAGE CATEGORIES
+========================================================= */
+
+.cheatsheets-container {
+    width: 100%;
+}
+
+.category {
+
+    width:
+        min(
+            calc(100% - 40px),
+            var(--container)
+        );
+
+    margin-inline:
+        auto;
+
+    padding:
+        75px
+        0;
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+
+/* Category header */
+
+.category-header {
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+
+    margin-bottom:
+        30px;
+}
+
+.category-header > div {
+    min-width: 0;
+}
+
+.category-header > p {
+
+    max-width:
+        350px;
+
+    margin-bottom:
+        3px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.9rem;
+
+    text-align:
+        right;
+}
+
+
+/* Number */
+
+.category-label {
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--accent);
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.08em;
+}
+
+.category h2 {
+
+    color:
+        var(--text);
+
+    font-size:
+        1.8rem;
+
+    line-height:
+        1.2;
+
+    letter-spacing:
+        -0.035em;
+}
+
+
+/* =========================================================
+   CHEATSHEET CARDS
+========================================================= */
+
+.cheatsheet-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap:
+        16px;
+}
+
+.cheatsheet-card {
+
+    position:
+        relative;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    min-height:
+        205px;
+
+    padding:
+        22px;
+
+    overflow:
+        hidden;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    box-shadow:
+        var(--shadow-sm);
+
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.cheatsheet-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 2px;
+
+    background:
+        var(--accent);
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left;
+
+    transition:
+        transform 0.18s ease;
+}
+
+.cheatsheet-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--accent) 40%,
+            var(--border)
+        );
+
+    box-shadow:
+        var(--shadow-md);
+}
+
+.cheatsheet-card:hover::after {
+
+    transform:
+        scaleX(1);
+}
+
+
+/* Card icon */
+
+.card-icon {
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    margin-bottom:
+        22px;
+
+    border-radius:
+        10px;
+
+    background:
+        var(--accent-soft);
+
+    color:
+        var(--accent);
+
+    font-family:
+        Consolas,
+        monospace;
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        800;
+}
+
+
+/* Card content */
+
+.card-content {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    flex: 1;
+}
+
+.card-content h3 {
+
+    margin-bottom:
+        7px;
+
+    color:
+        var(--text);
+
+    font-size:
+        1.05rem;
+
+    letter-spacing:
+        -0.015em;
+}
+
+.card-content p {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.87rem;
+
+    line-height:
+        1.6;
+}
+
+.card-link {
+
+    margin-top:
+        auto;
+
+    padding-top:
+        18px;
+
+    color:
+        var(--accent);
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================================
+   CHEATSHEET DOCUMENTATION PAGES
+========================================================= */
+
+.cheatsheet-section {
+
+    padding:
+        70px
+        0;
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+.cheatsheet-section:nth-child(even) {
+
+    background:
+        var(--surface);
+}
+
+.cheatsheet-section h2 {
+
+    margin-bottom:
+        18px;
+
+    font-size:
+        2rem;
+
+    line-height:
+        1.2;
+
+    letter-spacing:
+        -0.04em;
+}
+
+.cheatsheet-section h3 {
+
+    margin:
+        40px
+        0
+        14px;
+
+    font-size:
+        1.2rem;
+
+    letter-spacing:
+        -0.02em;
+}
+
+.cheatsheet-section p {
+
+    max-width:
+        760px;
+
+    margin-bottom:
+        20px;
+
+    color:
+        var(--text-secondary);
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   CODE BLOCKS
+========================================================= */
+
+pre {
+
+    position:
+        relative;
+
+    margin:
+        25px
+        0
+        32px;
+
+    padding:
+        22px
+        24px;
+
+    overflow-x:
+        auto;
+
+    background:
+        var(--code-background);
+
+    color:
+        var(--code-text);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.08);
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        "Liberation Mono",
+        Menlo,
+        monospace;
+
+    font-size:
+        0.87rem;
+
+    line-height:
+        1.7;
+
+    tab-size:
+        4;
+}
+
+pre::before {
+
+    content:
+        "CODE";
+
+    display:
+        block;
+
+    margin-bottom:
+        14px;
+
+    color:
+        #64748b;
+
+    font-size:
+        0.62rem;
+
+    font-weight:
+        800;
+
+    letter-spacing:
+        0.14em;
+}
+
+pre code {
+
+    padding:
+        0;
+
+    background:
+        transparent;
+
+    color:
+        inherit;
+
+    font-family:
+        inherit;
+
+    font-size:
+        inherit;
+}
+
+
+/* Inline code */
+
+code {
+
+    padding:
+        3px
+        6px;
+
+    background:
+        var(--accent-soft);
+
+    color:
+        var(--accent);
+
+    border-radius:
+        5px;
+
+    font-family:
+        "SFMono-Regular",
+        Consolas,
+        monospace;
+
+    font-size:
+        0.88em;
+}
+
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+.table-wrapper {
+
+    width:
+        100%;
+
+    overflow-x:
+        auto;
+
+    margin:
+        25px
+        0
+        35px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        var(--radius-md);
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+table {
+
+    width:
+        100%;
+
+    border-collapse:
+        collapse;
+
+    background:
+        var(--background);
+}
+
+th,
+td {
+
+    padding:
+        14px
+        18px;
+
+    text-align:
+        left;
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+th {
+
+    background:
+        var(--surface);
+
+    color:
+        var(--text);
+
+    font-size:
+        0.73rem;
+
+    font-weight:
+        750;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.07em;
+}
+
+td {
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        0.9rem;
+}
+
+tbody tr:hover {
+
+    background:
+        var(--surface);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   LISTS
+========================================================= */
+
+.cheatsheet-section ul,
+.cheatsheet-section ol {
+
+    max-width:
+        760px;
+
+    margin:
+        20px 0;
+
+    padding-left:
+        25px;
+}
+
+.cheatsheet-section li {
+
+    margin-bottom:
+        9px;
+
+    color:
+        var(--text-secondary);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+
+    border-top:
+        1px solid
+        var(--border);
+
+    background:
+        var(--surface);
+}
+
+.footer-container {
+
+    min-height:
+        110px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+}
+
+.footer-container strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        0.9rem;
+}
+
+.footer-container p {
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.8rem;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.visually-hidden {
+
+    position:
+        absolute;
+
+    width:
+        1px;
+
+    height:
+        1px;
+
+    padding:
+        0;
+
+    margin:
+        -1px;
+
+    overflow:
+        hidden;
+
+    clip:
+        rect(0, 0, 0, 0);
+
+    white-space:
+        nowrap;
+
+    border:
+        0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .cheatsheet-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+}
+
+
+@media (max-width: 750px) {
+
+    .container,
+    .header-container,
+    .hero-content,
+    .cheatsheets-container,
+    .footer-container,
+    .category {
+
+        width:
+            calc(100% - 28px);
+    }
+
+    .site-header {
+        height: 60px;
+    }
+
+    .main-navigation {
+        display: none;
+    }
+
+    .hero {
+
+        padding:
+            70px
+            0
+            60px;
+    }
+
+    .hero h1 {
+
+        font-size:
+            2.7rem;
+    }
+
+    .hero-description {
+
+        font-size:
+            0.98rem;
+    }
+
+    .category {
+
+        padding:
+            55px
+            0;
+    }
+
+    .category-header {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+        gap:
+            8px;
+    }
+
+    .category-header > p {
+
+        text-align:
+            left;
+    }
+
+    .cheatsheet-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .cheatsheet-section {
+
+        padding:
+            50px
+            0;
+    }
+
+    .cheatsheet-section h2 {
+
+        font-size:
+            1.65rem;
+    }
+
+    pre {
+
+        margin-left:
+            0;
+
+        margin-right:
+            0;
+
+        padding:
+            18px;
+
+        font-size:
+            0.78rem;
+    }
+
+    .footer-container {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+        justify-content:
+            center;
+
+        padding:
+            25px
+            0;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition:
+            none !important;
+    }
+}
+
+/* =========================================================
+   DOCUMENTATION PAGE LAYOUT
+========================================================= */
+
+.docs-container {
+
+    width:
+        min(
+            calc(100% - 40px),
+            var(--container)
+        );
+
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   DOCUMENTATION HERO
+========================================================= */
+
+.docs-hero {
+
+    padding:
+        85px
+        0
+        70px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            var(--accent-soft),
+            transparent 55%
+        );
+}
+
+
+.docs-hero h1 {
+
+    margin-bottom:
+        20px;
+
+    font-size:
+        clamp(
+            2.5rem,
+            6vw,
+            4.5rem
+        );
+
+    line-height:
+        1.05;
+
+    letter-spacing:
+        -0.055em;
+}
+
+
+.docs-hero .hero-text {
+
+    max-width:
+        760px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   DOCUMENTATION CONTENT
+========================================================= */
+
+.docs-content {
+
+    width:
+        100%;
+}
+
+
+.docs-section {
+
+    padding:
+        70px
+        0;
+
+    border-bottom:
+        1px solid
+        var(--border);
+}
+
+
+.docs-section:nth-child(even) {
+
+    background:
+        var(--surface);
+}
+
+
+.docs-section h2 {
+
+    margin-bottom:
+        18px;
+
+    font-size:
+        2rem;
+
+    line-height:
+        1.2;
+
+    letter-spacing:
+        -0.04em;
+}
+
+
+.docs-section h3 {
+
+    margin:
+        40px
+        0
+        14px;
+
+    font-size:
+        1.2rem;
+
+    letter-spacing:
+        -0.02em;
+}
+
+
+.docs-section p {
+
+    max-width:
+        760px;
+
+    margin-bottom:
+        20px;
+
+    color:
+        var(--text-secondary);
+
+    line-height:
+        1.75;
+}
+
+
+.docs-section ul,
+.docs-section ol {
+
+    max-width:
+        760px;
+
+    margin:
+        20px 0;
+
+    padding-left:
+        25px;
+}
+
+
+.docs-section li {
+
+    margin-bottom:
+        9px;
+
+    color:
+        var(--text-secondary);
+}
+
+
+/* =========================================================
+   DOCUMENTATION BACK LINK
+========================================================= */
+
+.docs-back {
+
+    padding:
+        45px
+        0
+        60px;
+}
+
+
+.docs-back a {
+
+    color:
+        var(--accent);
+
+    font-size:
+        0.9rem;
+
+    font-weight:
+        700;
+}
+
+
+.docs-back a:hover {
+
+    color:
+        var(--accent-hover);
+}
+
+
+/* =========================================================
+   DOCUMENTATION MOBILE
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .docs-container {
+
+        width:
+            calc(100% - 28px);
+    }
+
+
+    .docs-hero {
+
+        padding:
+            65px
+            0
+            55px;
+    }
+
+
+    .docs-hero h1 {
+
+        font-size:
+            2.7rem;
+    }
+
+
+    .docs-hero .hero-text {
+
+        font-size:
+            0.98rem;
+    }
+
+
+    .docs-section {
+
+        padding:
+            50px
+            0;
+    }
+
+
+    .docs-section h2 {
+
+        font-size:
+            1.65rem;
+    }
+
+
+    .docs-back {
+
+        padding:
+            35px
+            0
+            45px;
+    }
+}
+
+/* =========================================================
+   SEARCH - NO RESULTS
+========================================================= */
+
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 50px 20px;
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* =========================================================
+   COPY CODE BUTTON
+========================================================= */
+
+pre {
+    position: relative;
+}
+
+.copy-button {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    padding: 6px 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.copy-button:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.copy-button:active {
+    transform: scale(0.96);
+}

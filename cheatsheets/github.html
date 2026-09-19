@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="GitHub cheatsheet covering repositories, branches, pull requests, issues, Actions, Pages and collaboration."
+    >
+
+    <title>GitHub Cheatsheet | Dev Cheatsheets</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a href="../index.html" class="logo">
+                Dev Cheatsheets
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="../index.html#web-development">
+                    Web
+                </a>
+
+                <a href="../index.html#programming">
+                    Programming
+                </a>
+
+                <a href="../index.html#databases">
+                    Databases
+                </a>
+
+                <a href="../index.html#tools">
+                    Tools
+                </a>
+
+            </nav>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle dark mode"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="container hero-text">
+
+                <p class="eyebrow">
+                    DEVELOPMENT TOOLS
+                </p>
+
+                <h1>
+                    GitHub Cheatsheet
+                </h1>
+
+                <p class="hero-description">
+                    Repositories, branches, pull requests, issues,
+                    GitHub Actions, Pages, releases and collaboration.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK REFERENCE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Quick Reference
+            </h2>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Task</th>
+                            <th>Command / Location</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Create repository</td>
+                            <td>GitHub → New repository</td>
+                        </tr>
+
+                        <tr>
+                            <td>Clone repository</td>
+                            <td><code>git clone URL</code></td>
+                        </tr>
+
+                        <tr>
+                            <td>Upload changes</td>
+                            <td><code>git push</code></td>
+                        </tr>
+
+                        <tr>
+                            <td>Download changes</td>
+                            <td><code>git pull</code></td>
+                        </tr>
+
+                        <tr>
+                            <td>Open pull request</td>
+                            <td>Repository → Pull requests → New pull request</td>
+                        </tr>
+
+                        <tr>
+                            <td>Create issue</td>
+                            <td>Repository → Issues → New issue</td>
+                        </tr>
+
+                        <tr>
+                            <td>Deploy static website</td>
+                            <td>Repository → Settings → Pages</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GITHUB BASICS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                GitHub Basics
+            </h2>
+
+            <p>
+                Git is a version control system.
+                GitHub is a platform for hosting Git repositories
+                and collaborating on software projects.
+            </p>
+
+            <ul>
+
+                <li>
+                    <strong>Repository</strong> — project storage.
+                </li>
+
+                <li>
+                    <strong>Branch</strong> — independent line of development.
+                </li>
+
+                <li>
+                    <strong>Commit</strong> — saved change in Git history.
+                </li>
+
+                <li>
+                    <strong>Pull request</strong> — proposal to merge changes.
+                </li>
+
+                <li>
+                    <strong>Issue</strong> — task, bug report or discussion.
+                </li>
+
+                <li>
+                    <strong>Actions</strong> — automation and CI/CD.
+                </li>
+
+                <li>
+                    <strong>Pages</strong> — hosting for static websites.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =================================================
+             CREATE REPOSITORY
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Create a Repository
+            </h2>
+
+            <ol>
+
+                <li>
+                    Sign in to GitHub.
+                </li>
+
+                <li>
+                    Select <strong>New repository</strong>.
+                </li>
+
+                <li>
+                    Enter a repository name.
+                </li>
+
+                <li>
+                    Choose public or private visibility.
+                </li>
+
+                <li>
+                    Optionally add a README.
+                </li>
+
+                <li>
+                    Create the repository.
+                </li>
+
+            </ol>
+
+            <p>
+                A repository can contain source code,
+                documentation, configuration files and other
+                project files.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             CLONE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Clone a Repository
+            </h2>
+
+            <h3>
+                Clone using HTTPS
+            </h3>
+
+            <pre><code>git clone https://github.com/USERNAME/REPOSITORY.git</code></pre>
+
+            <h3>
+                Enter the Repository
+            </h3>
+
+            <pre><code>cd REPOSITORY</code></pre>
+
+            <h3>
+                Check the Remote
+            </h3>
+
+            <pre><code>git remote -v</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             CONNECT LOCAL PROJECT
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Connect an Existing Local Project
+            </h2>
+
+            <pre><code>cd my-project
+
+git init
+
+git add .
+
+git commit -m "Initial commit"
+
+git branch -M main
+
+git remote add origin https://github.com/USERNAME/REPOSITORY.git
+
+git push -u origin main</code></pre>
+
+            <p>
+                This workflow connects an existing local project
+                to a GitHub repository.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             BRANCHES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Branches
+            </h2>
+
+            <h3>
+                Create a Branch
+            </h3>
+
+            <pre><code>git switch -c feature-login</code></pre>
+
+            <h3>
+                Push the Branch
+            </h3>
+
+            <pre><code>git push -u origin feature-login</code></pre>
+
+            <h3>
+                List Branches
+            </h3>
+
+            <pre><code>git branch -a</code></pre>
+
+            <h3>
+                Switch Branch
+            </h3>
+
+            <pre><code>git switch main</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             PULL REQUESTS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Pull Requests
+            </h2>
+
+            <p>
+                A pull request lets you propose changes from one
+                branch into another. It also provides a place for
+                discussion, review and automated checks.
+            </p>
+
+            <h3>
+                Typical Workflow
+            </h3>
+
+            <pre><code>git switch -c feature-navbar
+
+git add .
+
+git commit -m "Add navigation bar"
+
+git push -u origin feature-navbar</code></pre>
+
+            <p>
+                After pushing the branch, open GitHub and create
+                a pull request from the feature branch into the
+                target branch.
+            </p>
+
+            <h3>
+                Pull Request Steps
+            </h3>
+
+            <ol>
+
+                <li>
+                    Open the repository.
+                </li>
+
+                <li>
+                    Open the <strong>Pull requests</strong> tab.
+                </li>
+
+                <li>
+                    Select <strong>New pull request</strong>.
+                </li>
+
+                <li>
+                    Choose the source and target branches.
+                </li>
+
+                <li>
+                    Review the changed files.
+                </li>
+
+                <li>
+                    Add a title and description.
+                </li>
+
+                <li>
+                    Create the pull request.
+                </li>
+
+                <li>
+                    Review checks and feedback.
+                </li>
+
+                <li>
+                    Merge the pull request when appropriate.
+                </li>
+
+            </ol>
+
+        </section>
+
+
+        <!-- =================================================
+             ISSUES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Issues
+            </h2>
+
+            <p>
+                GitHub Issues can be used to track bugs,
+                tasks, feature requests and project discussions.
+            </p>
+
+            <h3>
+                Useful Issue Information
+            </h3>
+
+            <ul>
+
+                <li>
+                    <strong>Title</strong> — short description.
+                </li>
+
+                <li>
+                    <strong>Description</strong> — details and context.
+                </li>
+
+                <li>
+                    <strong>Labels</strong> — categorize the issue.
+                </li>
+
+                <li>
+                    <strong>Assignees</strong> — people responsible for the work.
+                </li>
+
+                <li>
+                    <strong>Milestones</strong> — group work toward a goal.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- =================================================
+             README
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                README.md
+            </h2>
+
+            <p>
+                A README usually explains what a repository does,
+                how to install it, how to use it and how to contribute.
+            </p>
+
+            <h3>
+                Basic README Structure
+            </h3>
+
+            <pre><code># Project Name
+
+Short description of the project.
+
+## Features
+
+- Feature one
+- Feature two
+- Feature three
+
+## Installation
+
+npm install
+
+## Usage
+
+npm start
+
+## License
+
+MIT</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             GITIGNORE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                .gitignore
+            </h2>
+
+            <p>
+                A <code>.gitignore</code> file tells Git which
+                files and folders should not be tracked.
+            </p>
+
+            <pre><code>node_modules/
+.env
+dist/
+build/
+*.log
+.DS_Store</code></pre>
+
+            <p>
+                Never commit passwords, API keys, private keys
+                or other sensitive secrets to a repository.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             GITHUB ACTIONS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                GitHub Actions
+            </h2>
+
+            <p>
+                GitHub Actions can automatically run workflows
+                when events such as pushes or pull requests occur.
+            </p>
+
+            <p>
+                Workflow files are normally stored inside:
+            </p>
+
+            <pre><code>.github/workflows/</code></pre>
+
+            <h3>
+                Example Workflow
+            </h3>
+
+            <pre><code>name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run command
+        run: echo "Hello from GitHub Actions"</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             GITHUB PAGES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                GitHub Pages
+            </h2>
+
+            <p>
+                GitHub Pages can host static websites from
+                a GitHub repository.
+            </p>
+
+            <h3>
+                Typical Setup
+            </h3>
+
+            <ol>
+
+                <li>
+                    Push your website to a GitHub repository.
+                </li>
+
+                <li>
+                    Open the repository on GitHub.
+                </li>
+
+                <li>
+                    Go to <strong>Settings</strong>.
+                </li>
+
+                <li>
+                    Open <strong>Pages</strong>.
+                </li>
+
+                <li>
+                    Choose the deployment source.
+                </li>
+
+                <li>
+                    Select the branch and folder if required.
+                </li>
+
+                <li>
+                    Save the configuration.
+                </li>
+
+            </ol>
+
+            <h3>
+                Example Static Website
+            </h3>
+
+            <pre><code>index.html
+css/
+    style.css
+js/
+    app.js
+cheatsheets/
+    html.html
+    css.html
+    js.html
+    git.html
+    github.html</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             RELEASES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Releases &amp; Tags
+            </h2>
+
+            <p>
+                Git tags can mark specific points in project history.
+                GitHub Releases can provide release notes and
+                downloadable release assets.
+            </p>
+
+            <h3>
+                Create a Tag
+            </h3>
+
+            <pre><code>git tag v1.0.0</code></pre>
+
+            <h3>
+                Push a Tag
+            </h3>
+
+            <pre><code>git push origin v1.0.0</code></pre>
+
+            <h3>
+                List Tags
+            </h3>
+
+            <pre><code>git tag</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             FORKS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Forks
+            </h2>
+
+            <p>
+                A fork is a separate copy of a repository under
+                another GitHub account or organization.
+            </p>
+
+            <h3>
+                Typical Fork Workflow
+            </h3>
+
+            <ol>
+
+                <li>
+                    Fork the repository on GitHub.
+                </li>
+
+                <li>
+                    Clone your fork locally.
+                </li>
+
+                <li>
+                    Create a feature branch.
+                </li>
+
+                <li>
+                    Make and commit changes.
+                </li>
+
+                <li>
+                    Push the branch to your fork.
+                </li>
+
+                <li>
+                    Open a pull request to the original repository.
+                </li>
+
+            </ol>
+
+        </section>
+
+
+        <!-- =================================================
+             COLLABORATION
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Collaboration Workflow
+            </h2>
+
+            <h3>
+                Start With the Latest Main Branch
+            </h3>
+
+            <pre><code>git switch main
+git pull</code></pre>
+
+            <h3>
+                Create Your Branch
+            </h3>
+
+            <pre><code>git switch -c feature-name</code></pre>
+
+            <h3>
+                Save Your Work
+            </h3>
+
+            <pre><code>git add .
+git commit -m "Describe the change"</code></pre>
+
+            <h3>
+                Publish the Branch
+            </h3>
+
+            <pre><code>git push -u origin feature-name</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             SECURITY
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Security Basics
+            </h2>
+
+            <ul>
+
+                <li>
+                    Never commit passwords or API keys.
+                </li>
+
+                <li>
+                    Use environment variables for secrets.
+                </li>
+
+                <li>
+                    Review files before pushing them.
+                </li>
+
+                <li>
+                    Use appropriate repository access controls.
+                </li>
+
+                <li>
+                    Keep dependencies and workflows maintained.
+                </li>
+
+            </ul>
+
+            <h3>
+                Check What Will Be Committed
+            </h3>
+
+            <pre><code>git status
+
+git diff --staged</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             USEFUL COMMANDS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Useful Git Commands
+            </h2>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Command</th>
+                            <th>Purpose</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td><code>git remote -v</code></td>
+                            <td>Show remote repository URLs</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git fetch</code></td>
+                            <td>Download remote repository information</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git pull</code></td>
+                            <td>Fetch and integrate remote changes</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git push</code></td>
+                            <td>Upload local commits</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git branch -a</code></td>
+                            <td>List local and remote branches</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git log --oneline</code></td>
+                            <td>View compact commit history</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git status</code></td>
+                            <td>Show the current repository status</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             COMMON PROBLEMS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Common Problems
+            </h2>
+
+            <h3>
+                Check Repository Status
+            </h3>
+
+            <pre><code>git status</code></pre>
+
+            <h3>
+                Check Remote URL
+            </h3>
+
+            <pre><code>git remote -v</code></pre>
+
+            <h3>
+                Change Remote URL
+            </h3>
+
+            <pre><code>git remote set-url origin https://github.com/USERNAME/REPOSITORY.git</code></pre>
+
+            <h3>
+                Check Current Branch
+            </h3>
+
+            <pre><code>git branch --show-current</code></pre>
+
+            <h3>
+                Pull Before Pushing
+            </h3>
+
+            <pre><code>git pull --rebase origin main</code></pre>
+
+            <p>
+                If Git reports conflicts, resolve the conflicts
+                carefully before continuing.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             EVERYDAY WORKFLOW
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Everyday GitHub Workflow
+            </h2>
+
+            <pre><code># Start from the latest main branch
+git switch main
+git pull
+
+# Create a feature branch
+git switch -c feature-name
+
+# Make your changes
+
+# Review your changes
+git status
+git diff
+
+# Stage your changes
+git add .
+
+# Create a commit
+git commit -m "Add feature"
+
+# Push the branch
+git push -u origin feature-name
+
+# Open a pull request on GitHub</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             GITHUB TERMINOLOGY
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                GitHub Terminology
+            </h2>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Term</th>
+                            <th>Meaning</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Repository</td>
+                            <td>A project hosted on GitHub.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Branch</td>
+                            <td>A separate line of development.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Commit</td>
+                            <td>A recorded change in Git history.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Pull Request</td>
+                            <td>A proposal to merge changes.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Issue</td>
+                            <td>A place to track work, bugs or discussions.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Fork</td>
+                            <td>A separate copy of a repository.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Action</td>
+                            <td>An automated GitHub workflow.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Release</td>
+                            <td>A published version of a project.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Pages</td>
+                            <td>GitHub's static website hosting feature.</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-container">
+
+            <div>
+
+                <strong>
+                    Dev Cheatsheets
+                </strong>
+
+                <p>
+                    A growing reference for developers.
+                </p>
+
+            </div>
+
+            <div>
+
+                <p>
+                    Built with HTML, CSS &amp; JavaScript.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

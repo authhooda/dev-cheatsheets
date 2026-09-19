@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Linux cheatsheet covering essential terminal commands, files, directories, permissions, processes, networking and package management."
+    >
+
+    <title>Linux Cheatsheet | Dev Cheatsheets</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a href="../index.html" class="logo">
+                Dev Cheatsheets
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="../index.html#web-development">
+                    Web
+                </a>
+
+                <a href="../index.html#programming">
+                    Programming
+                </a>
+
+                <a href="../index.html#databases">
+                    Databases
+                </a>
+
+                <a href="../index.html#tools">
+                    Tools
+                </a>
+
+            </nav>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle dark mode"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="container hero-text">
+
+                <p class="eyebrow">
+                    DEVELOPMENT TOOLS
+                </p>
+
+                <h1>
+                    Linux Cheatsheet
+                </h1>
+
+                <p class="hero-description">
+                    Essential Linux terminal commands for files,
+                    directories, permissions, processes, networking,
+                    packages and everyday system administration.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK REFERENCE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Quick Reference
+            </h2>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Command</th>
+                            <th>Purpose</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td><code>pwd</code></td>
+                            <td>Show current directory</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>ls</code></td>
+                            <td>List files and directories</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>cd</code></td>
+                            <td>Change directory</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>mkdir</code></td>
+                            <td>Create a directory</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>touch</code></td>
+                            <td>Create an empty file</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>cp</code></td>
+                            <td>Copy files or directories</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>mv</code></td>
+                            <td>Move or rename files</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>rm</code></td>
+                            <td>Remove files or directories</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>cat</code></td>
+                            <td>Display file contents</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>grep</code></td>
+                            <td>Search text</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TERMINAL BASICS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Terminal Basics
+            </h2>
+
+            <h3>
+                Print Working Directory
+            </h3>
+
+            <pre><code>pwd</code></pre>
+
+            <p>
+                Shows the full path of your current directory.
+            </p>
+
+            <h3>
+                List Files
+            </h3>
+
+            <pre><code>ls</code></pre>
+
+            <h3>
+                List Detailed Information
+            </h3>
+
+            <pre><code>ls -l</code></pre>
+
+            <h3>
+                Show Hidden Files
+            </h3>
+
+            <pre><code>ls -a</code></pre>
+
+            <h3>
+                Detailed List Including Hidden Files
+            </h3>
+
+            <pre><code>ls -la</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             NAVIGATION
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Directory Navigation
+            </h2>
+
+            <h3>
+                Change Directory
+            </h3>
+
+            <pre><code>cd directory</code></pre>
+
+            <h3>
+                Go to Parent Directory
+            </h3>
+
+            <pre><code>cd ..</code></pre>
+
+            <h3>
+                Go to Home Directory
+            </h3>
+
+            <pre><code>cd ~</code></pre>
+
+            <h3>
+                Go to Root Directory
+            </h3>
+
+            <pre><code>cd /</code></pre>
+
+            <h3>
+                Return to Previous Directory
+            </h3>
+
+            <pre><code>cd -</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             FILES AND DIRECTORIES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Files &amp; Directories
+            </h2>
+
+            <h3>
+                Create a File
+            </h3>
+
+            <pre><code>touch file.txt</code></pre>
+
+            <h3>
+                Create a Directory
+            </h3>
+
+            <pre><code>mkdir projects</code></pre>
+
+            <h3>
+                Create Nested Directories
+            </h3>
+
+            <pre><code>mkdir -p projects/web/src</code></pre>
+
+            <h3>
+                Copy a File
+            </h3>
+
+            <pre><code>cp file.txt backup.txt</code></pre>
+
+            <h3>
+                Copy a Directory
+            </h3>
+
+            <pre><code>cp -r projects backup-projects</code></pre>
+
+            <h3>
+                Move a File
+            </h3>
+
+            <pre><code>mv file.txt documents/</code></pre>
+
+            <h3>
+                Rename a File
+            </h3>
+
+            <pre><code>mv old-name.txt new-name.txt</code></pre>
+
+            <h3>
+                Remove a File
+            </h3>
+
+            <pre><code>rm file.txt</code></pre>
+
+            <h3>
+                Remove an Empty Directory
+            </h3>
+
+            <pre><code>rmdir projects</code></pre>
+
+            <h3>
+                Remove a Directory and Its Contents
+            </h3>
+
+            <pre><code>rm -r projects</code></pre>
+
+            <p>
+                Be especially careful with recursive deletion commands.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             FILE CONTENT
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Reading Files
+            </h2>
+
+            <h3>
+                Display a File
+            </h3>
+
+            <pre><code>cat file.txt</code></pre>
+
+            <h3>
+                Display With Line Numbers
+            </h3>
+
+            <pre><code>cat -n file.txt</code></pre>
+
+            <h3>
+                View a Long File
+            </h3>
+
+            <pre><code>less file.txt</code></pre>
+
+            <p>
+                Press <code>q</code> to exit <code>less</code>.
+            </p>
+
+            <h3>
+                Show the Beginning of a File
+            </h3>
+
+            <pre><code>head file.txt</code></pre>
+
+            <h3>
+                Show the Last Lines
+            </h3>
+
+            <pre><code>tail file.txt</code></pre>
+
+            <h3>
+                Follow a Changing Log File
+            </h3>
+
+            <pre><code>tail -f app.log</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             SEARCHING
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Searching
+            </h2>
+
+            <h3>
+                Find Files by Name
+            </h3>
+
+            <pre><code>find . -name "file.txt"</code></pre>
+
+            <h3>
+                Find All HTML Files
+            </h3>
+
+            <pre><code>find . -name "*.html"</code></pre>
+
+            <h3>
+                Search Text in a File
+            </h3>
+
+            <pre><code>grep "hello" file.txt</code></pre>
+
+            <h3>
+                Search Recursively
+            </h3>
+
+            <pre><code>grep -r "hello" .</code></pre>
+
+            <h3>
+                Case-Insensitive Search
+            </h3>
+
+            <pre><code>grep -i "hello" file.txt</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             FILE PERMISSIONS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                File Permissions
+            </h2>
+
+            <p>
+                Linux permissions control who can read, write or
+                execute a file.
+            </p>
+
+            <ul>
+
+                <li>
+                    <strong>r</strong> — read
+                </li>
+
+                <li>
+                    <strong>w</strong> — write
+                </li>
+
+                <li>
+                    <strong>x</strong> — execute
+                </li>
+
+            </ul>
+
+            <h3>
+                View Permissions
+            </h3>
+
+            <pre><code>ls -l</code></pre>
+
+            <h3>
+                Make a File Executable
+            </h3>
+
+            <pre><code>chmod +x script.sh</code></pre>
+
+            <h3>
+                Numeric Permissions
+            </h3>
+
+            <pre><code>chmod 755 script.sh</code></pre>
+
+            <h3>
+                Common Permission Values
+            </h3>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Value</th>
+                            <th>Meaning</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td><code>400</code></td>
+                            <td>Owner can read</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>600</code></td>
+                            <td>Owner can read and write</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>644</code></td>
+                            <td>Owner read/write, others read</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>755</code></td>
+                            <td>Owner full access, others read/execute</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>777</code></td>
+                            <td>Read/write/execute for everyone</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <p>
+                Avoid broad permissions such as <code>777</code>
+                unless there is a specific reason to use them.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             OWNERSHIP
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Ownership
+            </h2>
+
+            <h3>
+                Change File Owner
+            </h3>
+
+            <pre><code>sudo chown username file.txt</code></pre>
+
+            <h3>
+                Change Owner Recursively
+            </h3>
+
+            <pre><code>sudo chown -R username directory/</code></pre>
+
+            <h3>
+                Change Group
+            </h3>
+
+            <pre><code>sudo chgrp groupname file.txt</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             PROCESSES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Processes
+            </h2>
+
+            <h3>
+                Show Running Processes
+            </h3>
+
+            <pre><code>ps</code></pre>
+
+            <h3>
+                Show Detailed Processes
+            </h3>
+
+            <pre><code>ps aux</code></pre>
+
+            <h3>
+                Interactive Process Viewer
+            </h3>
+
+            <pre><code>top</code></pre>
+
+            <h3>
+                Find a Process
+            </h3>
+
+            <pre><code>ps aux | grep node</code></pre>
+
+            <h3>
+                Terminate a Process
+            </h3>
+
+            <pre><code>kill PID</code></pre>
+
+            <h3>
+                Force Terminate a Process
+            </h3>
+
+            <pre><code>kill -9 PID</code></pre>
+
+            <p>
+                Prefer normal termination first. Force termination
+                should generally be used only when necessary.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             DISK USAGE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Disk Usage
+            </h2>
+
+            <h3>
+                Show Disk Space
+            </h3>
+
+            <pre><code>df -h</code></pre>
+
+            <h3>
+                Show Directory Size
+            </h3>
+
+            <pre><code>du -sh directory/</code></pre>
+
+            <h3>
+                Show Sizes of Items
+            </h3>
+
+            <pre><code>du -sh *</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             SYSTEM INFORMATION
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                System Information
+            </h2>
+
+            <h3>
+                Kernel Information
+            </h3>
+
+            <pre><code>uname -a</code></pre>
+
+            <h3>
+                Hostname
+            </h3>
+
+            <pre><code>hostname</code></pre>
+
+            <h3>
+                Current User
+            </h3>
+
+            <pre><code>whoami</code></pre>
+
+            <h3>
+                Logged-In Users
+            </h3>
+
+            <pre><code>who</code></pre>
+
+            <h3>
+                Command Location
+            </h3>
+
+            <pre><code>which python</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             NETWORKING
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Networking
+            </h2>
+
+            <h3>
+                Show Network Interfaces
+            </h3>
+
+            <pre><code>ip addr</code></pre>
+
+            <h3>
+                Test Network Connectivity
+            </h3>
+
+            <pre><code>ping example.com</code></pre>
+
+            <h3>
+                Check DNS Information
+            </h3>
+
+            <pre><code>nslookup example.com</code></pre>
+
+            <h3>
+                Download a URL
+            </h3>
+
+            <pre><code>curl https://example.com</code></pre>
+
+            <h3>
+                Download a File
+            </h3>
+
+            <pre><code>wget https://example.com/file.zip</code></pre>
+
+            <h3>
+                Show Listening Ports
+            </h3>
+
+            <pre><code>ss -tuln</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             CURL
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                curl Basics
+            </h2>
+
+            <h3>
+                GET Request
+            </h3>
+
+            <pre><code>curl https://api.example.com/users</code></pre>
+
+            <h3>
+                Save Response to a File
+            </h3>
+
+            <pre><code>curl https://example.com -o page.html</code></pre>
+
+            <h3>
+                Send JSON Data
+            </h3>
+
+            <pre><code>curl -X POST \
+-H "Content-Type: application/json" \
+-d '{"name":"Aryan"}' \
+https://api.example.com/users</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             ARCHIVES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Archives
+            </h2>
+
+            <h3>
+                Create a tar Archive
+            </h3>
+
+            <pre><code>tar -cf archive.tar directory/</code></pre>
+
+            <h3>
+                Extract a tar Archive
+            </h3>
+
+            <pre><code>tar -xf archive.tar</code></pre>
+
+            <h3>
+                Create a gzip-compressed Archive
+            </h3>
+
+            <pre><code>tar -czf archive.tar.gz directory/</code></pre>
+
+            <h3>
+                Extract a gzip Archive
+            </h3>
+
+            <pre><code>tar -xzf archive.tar.gz</code></pre>
+
+            <h3>
+                Create a ZIP File
+            </h3>
+
+            <pre><code>zip -r archive.zip directory/</code></pre>
+
+            <h3>
+                Extract a ZIP File
+            </h3>
+
+            <pre><code>unzip archive.zip</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             PACKAGE MANAGEMENT
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Package Management
+            </h2>
+
+            <p>
+                Package commands depend on the Linux distribution.
+                The examples below use Debian and Ubuntu's APT system.
+            </p>
+
+            <h3>
+                Update Package Information
+            </h3>
+
+            <pre><code>sudo apt update</code></pre>
+
+            <h3>
+                Upgrade Installed Packages
+            </h3>
+
+            <pre><code>sudo apt upgrade</code></pre>
+
+            <h3>
+                Install a Package
+            </h3>
+
+            <pre><code>sudo apt install package-name</code></pre>
+
+            <h3>
+                Remove a Package
+            </h3>
+
+            <pre><code>sudo apt remove package-name</code></pre>
+
+            <h3>
+                Search for a Package
+            </h3>
+
+            <pre><code>apt search package-name</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             ENVIRONMENT VARIABLES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Environment Variables
+            </h2>
+
+            <h3>
+                Show an Environment Variable
+            </h3>
+
+            <pre><code>echo $PATH</code></pre>
+
+            <h3>
+                Show All Environment Variables
+            </h3>
+
+            <pre><code>printenv</code></pre>
+
+            <h3>
+                Set a Variable for the Current Shell
+            </h3>
+
+            <pre><code>export APP_ENV=development</code></pre>
+
+            <h3>
+                Read the Variable
+            </h3>
+
+            <pre><code>echo $APP_ENV</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             PIPES AND REDIRECTION
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Pipes &amp; Redirection
+            </h2>
+
+            <h3>
+                Pipe Output
+            </h3>
+
+            <pre><code>ls -la | grep ".html"</code></pre>
+
+            <p>
+                The pipe <code>|</code> sends the output of one
+                command into another command.
+            </p>
+
+            <h3>
+                Redirect Output to a File
+            </h3>
+
+            <pre><code>ls > files.txt</code></pre>
+
+            <h3>
+                Append Output
+            </h3>
+
+            <pre><code>ls >> files.txt</code></pre>
+
+            <h3>
+                Redirect Input
+            </h3>
+
+            <pre><code>command &lt; input.txt</code></pre>
+
+            <h3>
+                Redirect Errors
+            </h3>
+
+            <pre><code>command 2&gt; errors.txt</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             HISTORY
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Command History
+            </h2>
+
+            <h3>
+                Show History
+            </h3>
+
+            <pre><code>history</code></pre>
+
+            <h3>
+                Search History
+            </h3>
+
+            <pre><code>history | grep git</code></pre>
+
+            <h3>
+                Run a Previous Command
+            </h3>
+
+            <pre><code>!!</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             SUDO
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                sudo
+            </h2>
+
+            <p>
+                <code>sudo</code> runs a command with elevated
+                privileges when your account is permitted to do so.
+            </p>
+
+            <pre><code>sudo command</code></pre>
+
+            <h3>
+                Example
+            </h3>
+
+            <pre><code>sudo apt update</code></pre>
+
+            <p>
+                Use elevated privileges only when necessary.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             SYMBOLS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Useful Linux Symbols
+            </h2>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Meaning</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td><code>.</code></td>
+                            <td>Current directory</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>..</code></td>
+                            <td>Parent directory</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>~</code></td>
+                            <td>Home directory</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>/</code></td>
+                            <td>Root directory</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>|</code></td>
+                            <td>Pipe output to another command</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>&gt;</code></td>
+                            <td>Overwrite output file</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>&gt;&gt;</code></td>
+                            <td>Append to output file</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>*</code></td>
+                            <td>Wildcard matching multiple characters</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             EVERYDAY WORKFLOW
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Everyday Terminal Workflow
+            </h2>
+
+            <pre><code># Check where you are
+pwd
+
+# See what's there
+ls -la
+
+# Enter a project
+cd project
+
+# Check files
+ls
+
+# Create a directory
+mkdir src
+
+# Create a file
+touch index.html
+
+# Read a file
+cat index.html
+
+# Search for files
+find . -name "*.html"</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             SAFETY
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>
+                Important Safety Rules
+            </h2>
+
+            <ul>
+
+                <li>
+                    Be careful with <code>rm</code> and especially
+                    recursive deletion.
+                </li>
+
+                <li>
+                    Understand a command before using <code>sudo</code>.
+                </li>
+
+                <li>
+                    Avoid running commands copied from unknown sources.
+                </li>
+
+                <li>
+                    Check the current directory before destructive operations.
+                </li>
+
+                <li>
+                    Do not expose passwords, tokens or private keys in commands.
+                </li>
+
+                <li>
+                    Use the least privilege necessary for administrative tasks.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-container">
+
+            <div>
+
+                <strong>
+                    Dev Cheatsheets
+                </strong>
+
+                <p>
+                    A growing reference for developers.
+                </p>
+
+            </div>
+
+            <div>
+
+                <p>
+                    Built with HTML, CSS &amp; JavaScript.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

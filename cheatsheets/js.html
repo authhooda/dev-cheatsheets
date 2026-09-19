@@ -1,0 +1,1690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A practical JavaScript cheatsheet covering variables, data types, arrays, objects, functions, DOM, events, async JavaScript, APIs and more."
+    >
+
+    <title>JavaScript Cheatsheet | Dev Cheatsheets</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a
+                href="../index.html"
+                class="logo"
+            >
+                Dev Cheatsheets
+            </a>
+
+
+            <nav
+                class="main-nav"
+                aria-label="Main navigation"
+            >
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="#basics">
+                    Basics
+                </a>
+
+                <a href="#arrays">
+                    Arrays
+                </a>
+
+                <a href="#functions">
+                    Functions
+                </a>
+
+                <a href="#dom">
+                    DOM
+                </a>
+
+                <a href="#async">
+                    Async
+                </a>
+
+            </nav>
+
+
+            <button
+                id="themeToggle"
+                class="theme-toggle"
+                type="button"
+                aria-label="Toggle dark mode"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="container">
+
+                <p class="eyebrow">
+                    PROGRAMMING
+                </p>
+
+
+                <h1>
+                    JavaScript Cheatsheet
+                </h1>
+
+
+                <p class="hero-text">
+                    A practical reference for modern JavaScript,
+                    covering syntax, data structures, functions,
+                    DOM manipulation, events, APIs, promises,
+                    async/await, modules, and more.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             BASICS
+        ========================================== -->
+
+        <section
+            class="cheatsheet-section"
+            id="basics"
+        >
+
+            <div class="container">
+
+                <h2>
+                    JavaScript Basics
+                </h2>
+
+
+                <p>
+                    JavaScript is a programming language commonly
+                    used to add behavior and interactivity to web pages.
+                </p>
+
+
+                <h3>
+                    Variables
+                </h3>
+
+
+                <pre><code>let name = "Aryan";
+
+const age = 25;
+
+var oldStyle = true;</code></pre>
+
+
+                <h3>
+                    Data Types
+                </h3>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Type</th>
+                                <th>Example</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>String</td>
+                                <td><code>"Hello"</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Number</td>
+                                <td><code>42</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>BigInt</td>
+                                <td><code>123n</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Boolean</td>
+                                <td><code>true</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Undefined</td>
+                                <td><code>undefined</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Null</td>
+                                <td><code>null</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Symbol</td>
+                                <td><code>Symbol("id")</code></td>
+                            </tr>
+
+                            <tr>
+                                <td>Object</td>
+                                <td><code>{ name: "Aryan" }</code></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <h3>
+                    typeof
+                </h3>
+
+
+                <pre><code>typeof "hello";       // "string"
+
+typeof 42;            // "number"
+
+typeof true;          // "boolean"
+
+typeof undefined;     // "undefined"
+
+typeof null;          // "object"
+
+typeof {};            // "object"
+
+typeof [];            // "object"</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             OPERATORS
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Operators
+                </h2>
+
+
+                <h3>
+                    Arithmetic
+                </h3>
+
+
+                <pre><code>let a = 10;
+let b = 3;
+
+a + b;    // addition
+a - b;    // subtraction
+a * b;    // multiplication
+a / b;    // division
+a % b;    // remainder
+a ** b;   // exponentiation</code></pre>
+
+
+                <h3>
+                    Comparison
+                </h3>
+
+
+                <pre><code>5 == "5";     // true
+5 === "5";    // false
+
+5 != "5";     // false
+5 !== "5";    // true
+
+10 > 5;       // true
+10 < 5;       // false
+10 >= 10;     // true
+10 <= 10;     // true</code></pre>
+
+
+                <h3>
+                    Logical Operators
+                </h3>
+
+
+                <pre><code>true && true;     // AND
+
+true || false;    // OR
+
+!true;            // NOT</code></pre>
+
+
+                <h3>
+                    Nullish Coalescing
+                </h3>
+
+
+                <pre><code>const name = userName ?? "Guest";</code></pre>
+
+
+                <h3>
+                    Optional Chaining
+                </h3>
+
+
+                <pre><code>user?.profile?.name;</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             STRINGS
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Strings
+                </h2>
+
+
+                <pre><code>const text = "Hello World";</code></pre>
+
+
+                <h3>
+                    Common Methods
+                </h3>
+
+
+                <pre><code>text.length;
+
+text.toUpperCase();
+
+text.toLowerCase();
+
+text.includes("World");
+
+text.startsWith("Hello");
+
+text.endsWith("World");
+
+text.indexOf("World");
+
+text.slice(0, 5);
+
+text.replace("World", "JavaScript");
+
+text.trim();</code></pre>
+
+
+                <h3>
+                    Template Literals
+                </h3>
+
+
+                <pre><code>const name = "Aryan";
+const age = 25;
+
+const message =
+    `My name is ${name} and I am ${age}.`;</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             NUMBERS & MATH
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Numbers & Math
+                </h2>
+
+
+                <pre><code>const number = 42.75;
+
+Math.round(number);
+
+Math.floor(number);
+
+Math.ceil(number);
+
+Math.trunc(number);
+
+Math.abs(-10);
+
+Math.max(10, 20, 30);
+
+Math.min(10, 20, 30);
+
+Math.random();</code></pre>
+
+
+                <h3>
+                    Convert Strings to Numbers
+                </h3>
+
+
+                <pre><code>Number("42");
+
+parseInt("42px");
+
+parseFloat("42.5px");
+
++"42";</code></pre>
+
+
+                <h3>
+                    Fixed Decimal Places
+                </h3>
+
+
+                <pre><code>const price = 19.9876;
+
+price.toFixed(2);
+// "19.99"</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             ARRAYS
+        ========================================== -->
+
+        <section
+            class="cheatsheet-section"
+            id="arrays"
+        >
+
+            <div class="container">
+
+                <h2>
+                    Arrays
+                </h2>
+
+
+                <pre><code>const fruits = [
+    "Apple",
+    "Banana",
+    "Orange"
+];</code></pre>
+
+
+                <h3>
+                    Accessing Elements
+                </h3>
+
+
+                <pre><code>fruits[0];
+
+fruits[1];
+
+fruits.length;
+
+fruits.at(-1);</code></pre>
+
+
+                <h3>
+                    Add & Remove
+                </h3>
+
+
+                <pre><code>fruits.push("Mango");
+
+fruits.pop();
+
+fruits.unshift("Grape");
+
+fruits.shift();</code></pre>
+
+
+                <h3>
+                    Common Methods
+                </h3>
+
+
+                <pre><code>fruits.includes("Apple");
+
+fruits.indexOf("Banana");
+
+fruits.slice(0, 2);
+
+fruits.join(", ");
+
+fruits.reverse();
+
+fruits.sort();</code></pre>
+
+
+                <h3>
+                    map()
+                </h3>
+
+
+                <pre><code>const numbers = [1, 2, 3, 4];
+
+const doubled =
+    numbers.map(
+        number => number * 2
+    );</code></pre>
+
+
+                <h3>
+                    filter()
+                </h3>
+
+
+                <pre><code>const numbers = [1, 2, 3, 4, 5];
+
+const even =
+    numbers.filter(
+        number => number % 2 === 0
+    );</code></pre>
+
+
+                <h3>
+                    find()
+                </h3>
+
+
+                <pre><code>const users = [
+    { name: "A", age: 20 },
+    { name: "B", age: 30 }
+];
+
+const user =
+    users.find(
+        user => user.age === 30
+    );</code></pre>
+
+
+                <h3>
+                    reduce()
+                </h3>
+
+
+                <pre><code>const numbers = [1, 2, 3, 4];
+
+const total =
+    numbers.reduce(
+        (sum, number) =>
+            sum + number,
+        0
+    );</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             OBJECTS
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Objects
+                </h2>
+
+
+                <pre><code>const user = {
+    name: "Aryan",
+    age: 25,
+    active: true
+};</code></pre>
+
+
+                <h3>
+                    Access Properties
+                </h3>
+
+
+                <pre><code>user.name;
+
+user["age"];
+
+user.active;</code></pre>
+
+
+                <h3>
+                    Add & Modify
+                </h3>
+
+
+                <pre><code>user.email = "user@example.com";
+
+user.age = 26;
+
+delete user.active;</code></pre>
+
+
+                <h3>
+                    Object Methods
+                </h3>
+
+
+                <pre><code>Object.keys(user);
+
+Object.values(user);
+
+Object.entries(user);
+
+Object.hasOwn(user, "name");</code></pre>
+
+
+                <h3>
+                    Destructuring
+                </h3>
+
+
+                <pre><code>const {
+    name,
+    age
+} = user;</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             CONDITIONALS
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Conditionals
+                </h2>
+
+
+                <h3>
+                    if / else
+                </h3>
+
+
+                <pre><code>const age = 20;
+
+if (age >= 18) {
+
+    console.log("Adult");
+
+} else {
+
+    console.log("Minor");
+
+}</code></pre>
+
+
+                <h3>
+                    else if
+                </h3>
+
+
+                <pre><code>if (score >= 90) {
+
+    grade = "A";
+
+} else if (score >= 80) {
+
+    grade = "B";
+
+} else {
+
+    grade = "C";
+
+}</code></pre>
+
+
+                <h3>
+                    Ternary Operator
+                </h3>
+
+
+                <pre><code>const status =
+    age >= 18
+        ? "Adult"
+        : "Minor";</code></pre>
+
+
+                <h3>
+                    switch
+                </h3>
+
+
+                <pre><code>switch (day) {
+
+    case "Monday":
+        console.log("Start");
+        break;
+
+    case "Friday":
+        console.log("Almost weekend");
+        break;
+
+    default:
+        console.log("Normal day");
+
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             LOOPS
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Loops
+                </h2>
+
+
+                <h3>
+                    for
+                </h3>
+
+
+                <pre><code>for (
+    let i = 0;
+    i < 5;
+    i++
+) {
+
+    console.log(i);
+
+}</code></pre>
+
+
+                <h3>
+                    for...of
+                </h3>
+
+
+                <pre><code>const fruits = [
+    "Apple",
+    "Banana",
+    "Orange"
+];
+
+for (const fruit of fruits) {
+
+    console.log(fruit);
+
+}</code></pre>
+
+
+                <h3>
+                    for...in
+                </h3>
+
+
+                <pre><code>const user = {
+    name: "Aryan",
+    age: 25
+};
+
+for (const key in user) {
+
+    console.log(
+        key,
+        user[key]
+    );
+
+}</code></pre>
+
+
+                <h3>
+                    while
+                </h3>
+
+
+                <pre><code>let count = 0;
+
+while (count < 5) {
+
+    console.log(count);
+
+    count++;
+
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             FUNCTIONS
+        ========================================== -->
+
+        <section
+            class="cheatsheet-section"
+            id="functions"
+        >
+
+            <div class="container">
+
+                <h2>
+                    Functions
+                </h2>
+
+
+                <h3>
+                    Function Declaration
+                </h3>
+
+
+                <pre><code>function greet(name) {
+
+    return `Hello ${name}`;
+
+}
+
+greet("Aryan");</code></pre>
+
+
+                <h3>
+                    Function Expression
+                </h3>
+
+
+                <pre><code>const greet = function(name) {
+
+    return `Hello ${name}`;
+
+};</code></pre>
+
+
+                <h3>
+                    Arrow Function
+                </h3>
+
+
+                <pre><code>const add =
+    (a, b) => a + b;</code></pre>
+
+
+                <h3>
+                    Default Parameters
+                </h3>
+
+
+                <pre><code>function greet(
+    name = "Guest"
+) {
+
+    return `Hello ${name}`;
+
+}</code></pre>
+
+
+                <h3>
+                    Rest Parameters
+                </h3>
+
+
+                <pre><code>function sum(...numbers) {
+
+    return numbers.reduce(
+        (total, number) =>
+            total + number,
+        0
+    );
+
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             SPREAD & DESTRUCTURING
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Spread & Destructuring
+                </h2>
+
+
+                <h3>
+                    Array Spread
+                </h3>
+
+
+                <pre><code>const first = [1, 2, 3];
+
+const second = [4, 5, 6];
+
+const combined = [
+    ...first,
+    ...second
+];</code></pre>
+
+
+                <h3>
+                    Object Spread
+                </h3>
+
+
+                <pre><code>const user = {
+    name: "Aryan",
+    age: 25
+};
+
+const updatedUser = {
+    ...user,
+    active: true
+};</code></pre>
+
+
+                <h3>
+                    Array Destructuring
+                </h3>
+
+
+                <pre><code>const colors = [
+    "red",
+    "green",
+    "blue"
+];
+
+const [
+    firstColor,
+    secondColor
+] = colors;</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             DOM
+        ========================================== -->
+
+        <section
+            class="cheatsheet-section"
+            id="dom"
+        >
+
+            <div class="container">
+
+                <h2>
+                    DOM Manipulation
+                </h2>
+
+
+                <h3>
+                    Select Elements
+                </h3>
+
+
+                <pre><code>document.getElementById("title");
+
+document.querySelector(".card");
+
+document.querySelectorAll(".card");</code></pre>
+
+
+                <h3>
+                    Change Content
+                </h3>
+
+
+                <pre><code>const title =
+    document.querySelector("h1");
+
+title.textContent =
+    "New Title";</code></pre>
+
+
+                <h3>
+                    Change HTML
+                </h3>
+
+
+                <pre><code>element.innerHTML =
+    "&lt;strong&gt;Hello&lt;/strong&gt;";</code></pre>
+
+
+                <h3>
+                    Classes
+                </h3>
+
+
+                <pre><code>element.classList.add("active");
+
+element.classList.remove("active");
+
+element.classList.toggle("active");
+
+element.classList.contains("active");</code></pre>
+
+
+                <h3>
+                    Attributes
+                </h3>
+
+
+                <pre><code>element.setAttribute(
+    "data-id",
+    "123"
+);
+
+element.getAttribute("data-id");
+
+element.removeAttribute("disabled");</code></pre>
+
+
+                <h3>
+                    Create Elements
+                </h3>
+
+
+                <pre><code>const button =
+    document.createElement("button");
+
+button.textContent = "Click me";
+
+document.body.appendChild(button);</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             EVENTS
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Events
+                </h2>
+
+
+                <h3>
+                    addEventListener()
+                </h3>
+
+
+                <pre><code>const button =
+    document.querySelector("button");
+
+button.addEventListener(
+    "click",
+    function () {
+
+        console.log("Clicked!");
+
+    }
+);</code></pre>
+
+
+                <h3>
+                    Common Events
+                </h3>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Event</th>
+                                <th>Use</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>click</code></td>
+                                <td>Mouse click</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>input</code></td>
+                                <td>Input value changes</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>change</code></td>
+                                <td>Form value changes</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>submit</code></td>
+                                <td>Form submission</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>keydown</code></td>
+                                <td>Keyboard key pressed</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>mouseover</code></td>
+                                <td>Pointer enters element</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>scroll</code></td>
+                                <td>Page or element scrolls</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <h3>
+                    Prevent Default
+                </h3>
+
+
+                <pre><code>form.addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+    }
+);</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             JSON
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    JSON
+                </h2>
+
+
+                <p>
+                    JSON is commonly used for exchanging
+                    structured data between applications.
+                </p>
+
+
+                <h3>
+                    JavaScript → JSON
+                </h3>
+
+
+                <pre><code>const user = {
+    name: "Aryan",
+    age: 25
+};
+
+const json =
+    JSON.stringify(user);</code></pre>
+
+
+                <h3>
+                    JSON → JavaScript
+                </h3>
+
+
+                <pre><code>const object =
+    JSON.parse(json);</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             FETCH
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Fetch & APIs
+                </h2>
+
+
+                <h3>
+                    GET Request
+                </h3>
+
+
+                <pre><code>fetch("https://api.example.com/users")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error);
+    });</code></pre>
+
+
+                <h3>
+                    POST Request
+                </h3>
+
+
+                <pre><code>fetch("/api/users", {
+
+    method: "POST",
+
+    headers: {
+        "Content-Type":
+            "application/json"
+    },
+
+    body: JSON.stringify({
+        name: "Aryan"
+    })
+
+});</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             PROMISES & ASYNC
+        ========================================== -->
+
+        <section
+            class="cheatsheet-section"
+            id="async"
+        >
+
+            <div class="container">
+
+                <h2>
+                    Promises & Async JavaScript
+                </h2>
+
+
+                <h3>
+                    Promise
+                </h3>
+
+
+                <pre><code>const promise =
+    new Promise(
+        (resolve, reject) => {
+
+            const success = true;
+
+            if (success) {
+                resolve("Done");
+            } else {
+                reject("Failed");
+            }
+
+        }
+    );</code></pre>
+
+
+                <h3>
+                    then / catch
+                </h3>
+
+
+                <pre><code>promise
+    .then(result => {
+        console.log(result);
+    })
+    .catch(error => {
+        console.error(error);
+    });</code></pre>
+
+
+                <h3>
+                    async / await
+                </h3>
+
+
+                <pre><code>async function getUsers() {
+
+    try {
+
+        const response =
+            await fetch("/api/users");
+
+        const users =
+            await response.json();
+
+        console.log(users);
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
+
+}</code></pre>
+
+
+                <h3>
+                    Promise.all()
+                </h3>
+
+
+                <pre><code>const results =
+    await Promise.all([
+        fetch("/api/users"),
+        fetch("/api/posts")
+    ]);</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             ERROR HANDLING
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Error Handling
+                </h2>
+
+
+                <pre><code>try {
+
+    riskyOperation();
+
+} catch (error) {
+
+    console.error(error);
+
+} finally {
+
+    console.log("Finished");
+
+}</code></pre>
+
+
+                <h3>
+                    Throw an Error
+                </h3>
+
+
+                <pre><code>if (!user) {
+
+    throw new Error(
+        "User not found"
+    );
+
+}</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             MODULES
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Modules
+                </h2>
+
+
+                <h3>
+                    Export
+                </h3>
+
+
+                <pre><code>export const name = "Aryan";
+
+export function greet() {
+    return "Hello";
+}</code></pre>
+
+
+                <h3>
+                    Import
+                </h3>
+
+
+                <pre><code>import {
+    name,
+    greet
+} from "./utils.js";</code></pre>
+
+
+                <h3>
+                    Default Export
+                </h3>
+
+
+                <pre><code>export default function greet() {
+    return "Hello";
+}</code></pre>
+
+
+                <pre><code>import greet
+    from "./greet.js";</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             DATE
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Date & Time
+                </h2>
+
+
+                <pre><code>const now = new Date();
+
+now.getFullYear();
+
+now.getMonth();
+
+now.getDate();
+
+now.getDay();
+
+now.getHours();
+
+now.getMinutes();
+
+now.toISOString();</code></pre>
+
+
+                <h3>
+                    Timestamp
+                </h3>
+
+
+                <pre><code>Date.now();</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             LOCAL STORAGE
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Local Storage
+                </h2>
+
+
+                <pre><code>localStorage.setItem(
+    "theme",
+    "dark"
+);
+
+const theme =
+    localStorage.getItem("theme");
+
+localStorage.removeItem("theme");
+
+localStorage.clear();</code></pre>
+
+
+                <h3>
+                    Store Objects
+                </h3>
+
+
+                <pre><code>localStorage.setItem(
+    "user",
+    JSON.stringify(user)
+);
+
+const savedUser =
+    JSON.parse(
+        localStorage.getItem("user")
+    );</code></pre>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             USEFUL PATTERNS
+        ========================================== -->
+
+        <section class="cheatsheet-section">
+
+            <div class="container">
+
+                <h2>
+                    Useful JavaScript Patterns
+                </h2>
+
+
+                <h3>
+                    Short-Circuit Default
+                </h3>
+
+
+                <pre><code>const name =
+    user.name || "Guest";</code></pre>
+
+
+                <h3>
+                    Optional Chaining
+                </h3>
+
+
+                <pre><code>const city =
+    user?.address?.city;</code></pre>
+
+
+                <h3>
+                    Nullish Default
+                </h3>
+
+
+                <pre><code>const value =
+    input ?? "Default";</code></pre>
+
+
+                <h3>
+                    Check Array
+                </h3>
+
+
+                <pre><code>Array.isArray(value);</code></pre>
+
+
+                <h3>
+                    Convert Iterable to Array
+                </h3>
+
+
+                <pre><code>const array = [
+    ...document.querySelectorAll(".card")
+];</code></pre>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-container">
+
+            <div>
+
+                <strong>
+                    Dev Cheatsheets
+                </strong>
+
+                <p>
+                    A growing reference for developers.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <p>
+                    Built with HTML, CSS &amp; JavaScript.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>

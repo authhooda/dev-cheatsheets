@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HTML Cheatsheet | Dev Cheatsheets</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+
+            <a href="../index.html" class="logo">
+                Dev Cheatsheets
+            </a>
+
+            <nav class="main-nav">
+                <a href="../index.html">Home</a>
+                <a href="#basics">HTML Basics</a>
+                <a href="#tags">Tags</a>
+                <a href="#forms">Forms</a>
+                <a href="#semantic">Semantic HTML</a>
+            </nav>
+
+            <button id="themeToggle" class="theme-toggle" type="button">
+                🌙
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+
+                <p class="eyebrow">WEB DEVELOPMENT</p>
+
+                <h1>HTML Cheatsheet</h1>
+
+                <p class="hero-text">
+                    A practical reference for HTML elements, attributes,
+                    structure, forms, semantic markup, and more.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- HTML Basics -->
+        <section id="basics" class="cheatsheet-section">
+            <div class="container">
+
+                <h2>HTML Document Structure</h2>
+
+                <p>
+                    The basic structure of an HTML document looks like this:
+                </p>
+
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport"
+          content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;title&gt;My Website&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+            </div>
+        </section>
+
+
+        <!-- Common Tags -->
+        <section id="tags" class="cheatsheet-section">
+            <div class="container">
+
+                <h2>Common HTML Tags</h2>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tag</th>
+                                <th>Purpose</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td><code>&lt;h1&gt;</code></td>
+                                <td>Main heading</td>
+                                <td><code>&lt;h1&gt;Title&lt;/h1&gt;</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;p&gt;</code></td>
+                                <td>Paragraph</td>
+                                <td><code>&lt;p&gt;Hello&lt;/p&gt;</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;a&gt;</code></td>
+                                <td>Link</td>
+                                <td><code>&lt;a href="#"&gt;Link&lt;/a&gt;</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;img&gt;</code></td>
+                                <td>Image</td>
+                                <td><code>&lt;img src="image.jpg" alt="Image"&gt;</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;div&gt;</code></td>
+                                <td>Generic block container</td>
+                                <td><code>&lt;div&gt;Content&lt;/div&gt;</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;span&gt;</code></td>
+                                <td>Generic inline container</td>
+                                <td><code>&lt;span&gt;Text&lt;/span&gt;</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;ul&gt;</code></td>
+                                <td>Unordered list</td>
+                                <td><code>&lt;ul&gt;...&lt;/ul&gt;</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;ol&gt;</code></td>
+                                <td>Ordered list</td>
+                                <td><code>&lt;ol&gt;...&lt;/ol&gt;</code></td>
+                            </tr>
+
+                            <tr>
+                                <td><code>&lt;li&gt;</code></td>
+                                <td>List item</td>
+                                <td><code>&lt;li&gt;Item&lt;/li&gt;</code></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Forms -->
+        <section id="forms" class="cheatsheet-section">
+            <div class="container">
+
+                <h2>Forms & Inputs</h2>
+
+                <pre><code>&lt;form action="/submit" method="post"&gt;
+
+    &lt;label for="name"&gt;Name&lt;/label&gt;
+
+    &lt;input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter your name"
+    &gt;
+
+    &lt;button type="submit"&gt;
+        Submit
+    &lt;/button&gt;
+
+&lt;/form&gt;</code></pre>
+
+                <h3>Common Input Types</h3>
+
+                <ul>
+                    <li><code>text</code> — Text input</li>
+                    <li><code>email</code> — Email address</li>
+                    <li><code>password</code> — Password</li>
+                    <li><code>number</code> — Numeric input</li>
+                    <li><code>date</code> — Date picker</li>
+                    <li><code>checkbox</code> — Checkbox</li>
+                    <li><code>radio</code> — Radio button</li>
+                    <li><code>file</code> — File upload</li>
+                    <li><code>submit</code> — Submit button</li>
+                </ul>
+
+            </div>
+        </section>
+
+
+        <!-- Semantic HTML -->
+        <section id="semantic" class="cheatsheet-section">
+            <div class="container">
+
+                <h2>Semantic HTML</h2>
+
+                <p>
+                    Semantic elements describe the meaning of their content.
+                </p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;header&gt;</code></td>
+                            <td>Introductory content or navigation</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>&lt;nav&gt;</code></td>
+                            <td>Navigation links</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>&lt;main&gt;</code></td>
+                            <td>Main page content</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>&lt;section&gt;</code></td>
+                            <td>Thematic section of content</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>&lt;article&gt;</code></td>
+                            <td>Self-contained content</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>&lt;aside&gt;</code></td>
+                            <td>Related or secondary content</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>&lt;footer&gt;</code></td>
+                            <td>Footer information</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>
+                Dev Cheatsheets — HTML Reference
+            </p>
+        </div>
+    </footer>
+
+
+    <script src="../js/app.js"></script>
+
+</body>
+</html>

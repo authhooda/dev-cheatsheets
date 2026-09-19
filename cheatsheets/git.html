@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Git cheatsheet covering essential commands, branches, commits, remotes, merging, rebasing and workflows."
+    >
+
+    <title>Git Cheatsheet | Dev Cheatsheets</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+        <div class="container header-inner">
+
+            <a href="../index.html" class="logo">
+                Dev Cheatsheets
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="../index.html">Home</a>
+                <a href="../index.html#web-development">Web</a>
+                <a href="../index.html#programming">Programming</a>
+                <a href="../index.html#databases">Databases</a>
+                <a href="../index.html#tools">Tools</a>
+            </nav>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle dark mode"
+            >
+                🌙
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="hero">
+            <div class="container hero-text">
+
+                <p class="eyebrow">
+                    DEVELOPMENT TOOLS
+                </p>
+
+                <h1>Git Cheatsheet</h1>
+
+                <p class="hero-description">
+                    Essential Git commands for repositories,
+                    commits, branches, remotes, merging,
+                    rebasing and everyday workflows.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- =================================================
+             QUICK REFERENCE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Quick Reference</h2>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td><code>git init</code></td>
+                            <td>Create a new Git repository</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git clone URL</code></td>
+                            <td>Copy a remote repository</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git status</code></td>
+                            <td>Show repository status</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git add .</code></td>
+                            <td>Stage all changed files</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git commit -m "message"</code></td>
+                            <td>Create a commit</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git push</code></td>
+                            <td>Upload commits to a remote</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git pull</code></td>
+                            <td>Download and integrate remote changes</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git log</code></td>
+                            <td>View commit history</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GIT BASICS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Git Basics</h2>
+
+            <p>
+                Git is a distributed version control system.
+                It tracks changes to files and allows developers
+                to work safely on different versions of a project.
+            </p>
+
+            <h3>Check Git Version</h3>
+
+            <pre><code>git --version</code></pre>
+
+            <h3>Configure Your Identity</h3>
+
+            <pre><code>git config --global user.name "Your Name"
+
+git config --global user.email "you@example.com"</code></pre>
+
+            <h3>View Configuration</h3>
+
+            <pre><code>git config --list</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             CREATE REPOSITORY
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Repositories</h2>
+
+            <h3>Create a New Repository</h3>
+
+            <pre><code>git init</code></pre>
+
+            <p>
+                Initializes the current folder as a Git repository.
+            </p>
+
+            <h3>Clone a Repository</h3>
+
+            <pre><code>git clone https://github.com/user/project.git</code></pre>
+
+            <h3>Clone Into a Specific Folder</h3>
+
+            <pre><code>git clone https://github.com/user/project.git my-project</code></pre>
+
+            <h3>Check Repository Status</h3>
+
+            <pre><code>git status</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             GIT WORKFLOW
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Basic Git Workflow</h2>
+
+            <p>
+                A typical Git workflow is:
+            </p>
+
+            <ol>
+                <li>Edit files.</li>
+                <li>Check the changes.</li>
+                <li>Stage the changes.</li>
+                <li>Create a commit.</li>
+                <li>Push the commit to a remote repository.</li>
+            </ol>
+
+            <pre><code>git status
+
+git add .
+
+git commit -m "Add new feature"
+
+git push</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             STAGING
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Staging Changes</h2>
+
+            <h3>Stage One File</h3>
+
+            <pre><code>git add index.html</code></pre>
+
+            <h3>Stage Multiple Files</h3>
+
+            <pre><code>git add index.html css/style.css</code></pre>
+
+            <h3>Stage Everything</h3>
+
+            <pre><code>git add .</code></pre>
+
+            <h3>Unstage a File</h3>
+
+            <pre><code>git restore --staged index.html</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             COMMITS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Commits</h2>
+
+            <h3>Create a Commit</h3>
+
+            <pre><code>git commit -m "Update homepage"</code></pre>
+
+            <h3>View Commit History</h3>
+
+            <pre><code>git log</code></pre>
+
+            <h3>Compact History</h3>
+
+            <pre><code>git log --oneline</code></pre>
+
+            <h3>Show a Specific Commit</h3>
+
+            <pre><code>git show COMMIT_ID</code></pre>
+
+            <h3>Modify the Most Recent Commit</h3>
+
+            <pre><code>git commit --amend -m "Updated message"</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             DIFFERENCES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Viewing Changes</h2>
+
+            <h3>Unstaged Changes</h3>
+
+            <pre><code>git diff</code></pre>
+
+            <h3>Staged Changes</h3>
+
+            <pre><code>git diff --staged</code></pre>
+
+            <h3>Changes Between Commits</h3>
+
+            <pre><code>git diff COMMIT1 COMMIT2</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             BRANCHES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Branches</h2>
+
+            <h3>List Branches</h3>
+
+            <pre><code>git branch</code></pre>
+
+            <h3>Create a Branch</h3>
+
+            <pre><code>git branch feature-login</code></pre>
+
+            <h3>Switch Branch</h3>
+
+            <pre><code>git switch feature-login</code></pre>
+
+            <h3>Create and Switch</h3>
+
+            <pre><code>git switch -c feature-login</code></pre>
+
+            <h3>Delete a Branch</h3>
+
+            <pre><code>git branch -d feature-login</code></pre>
+
+            <h3>Force Delete a Branch</h3>
+
+            <pre><code>git branch -D feature-login</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             MERGING
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Merging</h2>
+
+            <p>
+                Merging combines the changes from one branch
+                into another branch.
+            </p>
+
+            <h3>Merge a Branch</h3>
+
+            <pre><code>git switch main
+
+git merge feature-login</code></pre>
+
+            <h3>Abort a Merge</h3>
+
+            <pre><code>git merge --abort</code></pre>
+
+            <h3>After Resolving Conflicts</h3>
+
+            <pre><code>git add .
+git commit</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             REMOTES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Remote Repositories</h2>
+
+            <h3>View Remotes</h3>
+
+            <pre><code>git remote -v</code></pre>
+
+            <h3>Add a Remote</h3>
+
+            <pre><code>git remote add origin https://github.com/user/project.git</code></pre>
+
+            <h3>Change Remote URL</h3>
+
+            <pre><code>git remote set-url origin https://github.com/user/project.git</code></pre>
+
+            <h3>Remove a Remote</h3>
+
+            <pre><code>git remote remove origin</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             PUSH
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Pushing Changes</h2>
+
+            <h3>Push Current Branch</h3>
+
+            <pre><code>git push</code></pre>
+
+            <h3>Push a Specific Branch</h3>
+
+            <pre><code>git push origin main</code></pre>
+
+            <h3>Push and Set Upstream</h3>
+
+            <pre><code>git push -u origin main</code></pre>
+
+            <p>
+                The <code>-u</code> option connects the local
+                branch to the remote branch so future pushes
+                can usually use simply <code>git push</code>.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             PULL AND FETCH
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Pull &amp; Fetch</h2>
+
+            <h3>Pull Changes</h3>
+
+            <pre><code>git pull</code></pre>
+
+            <h3>Pull From a Specific Branch</h3>
+
+            <pre><code>git pull origin main</code></pre>
+
+            <h3>Fetch Remote Changes</h3>
+
+            <pre><code>git fetch</code></pre>
+
+            <p>
+                <code>git fetch</code> downloads information about
+                remote changes without automatically merging them
+                into your current branch.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             RESET
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Undoing Changes</h2>
+
+            <h3>Discard Uncommitted Changes in a File</h3>
+
+            <pre><code>git restore index.html</code></pre>
+
+            <h3>Unstage a File</h3>
+
+            <pre><code>git restore --staged index.html</code></pre>
+
+            <h3>Reset to Previous Commit</h3>
+
+            <pre><code>git reset HEAD~1</code></pre>
+
+            <h3>Hard Reset</h3>
+
+            <pre><code>git reset --hard HEAD~1</code></pre>
+
+            <p>
+                Be careful with <code>--hard</code>.
+                It can permanently discard uncommitted changes.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             REVERT
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Revert a Commit</h2>
+
+            <pre><code>git revert COMMIT_ID</code></pre>
+
+            <p>
+                Creates a new commit that reverses the changes
+                introduced by an earlier commit.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             REBASE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Rebase</h2>
+
+            <p>
+                Rebasing moves or reapplies commits onto another
+                base commit and can create a cleaner linear history.
+            </p>
+
+            <h3>Rebase Onto Main</h3>
+
+            <pre><code>git switch feature-login
+
+git rebase main</code></pre>
+
+            <h3>Continue After Conflict Resolution</h3>
+
+            <pre><code>git add .
+git rebase --continue</code></pre>
+
+            <h3>Abort Rebase</h3>
+
+            <pre><code>git rebase --abort</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             STASH
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Git Stash</h2>
+
+            <p>
+                Stash temporarily stores uncommitted changes
+                so you can work on something else.
+            </p>
+
+            <h3>Save Changes</h3>
+
+            <pre><code>git stash</code></pre>
+
+            <h3>Save With a Message</h3>
+
+            <pre><code>git stash push -m "Work in progress"</code></pre>
+
+            <h3>List Stashes</h3>
+
+            <pre><code>git stash list</code></pre>
+
+            <h3>Apply Latest Stash</h3>
+
+            <pre><code>git stash apply</code></pre>
+
+            <h3>Apply and Remove Latest Stash</h3>
+
+            <pre><code>git stash pop</code></pre>
+
+            <h3>Delete a Stash</h3>
+
+            <pre><code>git stash drop</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             TAGS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Tags</h2>
+
+            <h3>Create a Tag</h3>
+
+            <pre><code>git tag v1.0.0</code></pre>
+
+            <h3>List Tags</h3>
+
+            <pre><code>git tag</code></pre>
+
+            <h3>Push a Tag</h3>
+
+            <pre><code>git push origin v1.0.0</code></pre>
+
+            <h3>Push All Tags</h3>
+
+            <pre><code>git push origin --tags</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             GITHUB WORKFLOW
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Common GitHub Workflow</h2>
+
+            <p>
+                A common workflow for contributing to a project:
+            </p>
+
+            <pre><code>git clone https://github.com/user/project.git
+
+cd project
+
+git switch -c feature-name
+
+# Make changes
+
+git add .
+
+git commit -m "Add feature"
+
+git push -u origin feature-name</code></pre>
+
+            <p>
+                After pushing, a pull request can be opened on
+                GitHub to propose merging the branch.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             .GITIGNORE
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>.gitignore</h2>
+
+            <p>
+                A <code>.gitignore</code> file tells Git which files
+                or folders should not be tracked.
+            </p>
+
+            <pre><code>node_modules/
+.env
+dist/
+build/
+*.log
+.DS_Store</code></pre>
+
+            <h3>Example</h3>
+
+            <pre><code>project/
+├── index.html
+├── package.json
+├── node_modules/
+└── .gitignore</code></pre>
+
+            <p>
+                With <code>node_modules/</code> in
+                <code>.gitignore</code>, Git will ignore that folder.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             USEFUL COMMANDS
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Useful Commands</h2>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td><code>git status</code></td>
+                            <td>Show current status</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git branch</code></td>
+                            <td>List local branches</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git branch -a</code></td>
+                            <td>List local and remote branches</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git remote -v</code></td>
+                            <td>Show remote repositories</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git log --oneline</code></td>
+                            <td>Compact commit history</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git reflog</code></td>
+                            <td>View reference history</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git clean -n</code></td>
+                            <td>Preview untracked files that can be removed</td>
+                        </tr>
+
+                        <tr>
+                            <td><code>git clean -f</code></td>
+                            <td>Remove untracked files</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             COMMON WORKFLOW
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Everyday Workflow</h2>
+
+            <pre><code># Check what changed
+git status
+
+# See the actual changes
+git diff
+
+# Stage changes
+git add .
+
+# Create a commit
+git commit -m "Describe the change"
+
+# Get remote updates
+git pull
+
+# Upload your commits
+git push</code></pre>
+
+        </section>
+
+
+        <!-- =================================================
+             TROUBLESHOOTING
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Common Problems</h2>
+
+            <h3>“Nothing to commit”</h3>
+
+            <pre><code>git status</code></pre>
+
+            <p>
+                Check whether your files actually changed and
+                whether the changes were already committed.
+            </p>
+
+            <h3>Remote Not Configured</h3>
+
+            <pre><code>git remote -v</code></pre>
+
+            <p>
+                If no remote exists, add one:
+            </p>
+
+            <pre><code>git remote add origin https://github.com/user/project.git</code></pre>
+
+            <h3>Push Rejected</h3>
+
+            <pre><code>git pull --rebase origin main
+git push</code></pre>
+
+            <p>
+                Review the changes carefully if Git reports
+                conflicts before continuing.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             IMPORTANT RULES
+        ================================================== -->
+
+        <section class="container cheatsheet-section">
+
+            <h2>Important Git Rules</h2>
+
+            <ul>
+                <li>Commit small, logical changes.</li>
+                <li>Write clear commit messages.</li>
+                <li>Check <code>git status</code> frequently.</li>
+                <li>Pull remote changes when appropriate.</li>
+                <li>Do not commit passwords, API keys or secrets.</li>
+                <li>Use <code>.gitignore</code> for files that should not be tracked.</li>
+                <li>Be careful with destructive commands such as <code>reset --hard</code>.</li>
+                <li>Do not rewrite shared history unless the team workflow allows it.</li>
+            </ul>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-container">
+
+            <div>
+                <strong>Dev Cheatsheets</strong>
+                <p>
+                    A growing reference for developers.
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    Built with HTML, CSS &amp; JavaScript.
+                </p>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="../js/app.js"></script>
+
+</body>
+</html>

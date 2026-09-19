@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="A collection of developer cheatsheets for HTML, CSS, JavaScript, Git, Linux, SQL, Python and more."
+    >
+
+    <title>Dev Cheatsheets</title>
+
+    <!-- Our main stylesheet will be connected here later -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                Dev Cheatsheets
+            </a>
+
+            <nav class="main-navigation" aria-label="Main navigation">
+
+                <a href="#web-development">Web</a>
+                <a href="#programming">Programming</a>
+                <a href="#databases">Databases</a>
+                <a href="#tools">Tools</a>
+
+            </nav>
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle dark mode"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="hero-label">
+                    DEVELOPER REFERENCE
+                </p>
+
+                <h1>
+                    Everything you need.<br>
+                    <span>One cheatsheet at a time.</span>
+                </h1>
+
+                <p class="hero-description">
+                    A growing collection of practical cheatsheets
+                    for programming, web development, databases,
+                    developer tools and more.
+                </p>
+
+
+                <!-- Search -->
+
+                <div class="search-container">
+
+                    <label for="cheatsheetSearch" class="visually-hidden">
+                        Search cheatsheets
+                    </label>
+
+                    <input
+                        type="search"
+                        id="cheatsheetSearch"
+                        placeholder="Search cheatsheets..."
+                        autocomplete="off"
+                    >
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CHEATSHEETS
+        ========================================== -->
+
+        <section class="cheatsheets-container">
+
+    <p id="noResults" class="no-results">
+        No cheatsheets found. Try another search.
+    </p>
+
+
+    <!-- WEB DEVELOPMENT -->
+
+            <section
+                class="category"
+                id="web-development"
+            >
+
+                <div class="category-header">
+
+                    <div>
+                        <p class="category-label">
+                            01
+                        </p>
+
+                        <h2>
+                            Web Development
+                        </h2>
+                    </div>
+
+                    <p>
+                        The building blocks of the web.
+                    </p>
+
+                </div>
+
+
+                <div class="cheatsheet-grid">
+
+
+                    <!-- HTML -->
+
+                    <a
+                        href="cheatsheets/html.html"
+                        class="cheatsheet-card"
+                        data-name="HTML HyperText Markup Language"
+                    >
+
+                        <div class="card-icon html-icon">
+                            HTML
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                HTML
+                            </h3>
+
+                            <p>
+                                Structure and content of web pages.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- CSS -->
+
+                    <a
+                        href="cheatsheets/css.html"
+                        class="cheatsheet-card"
+                        data-name="CSS Cascading Style Sheets"
+                    >
+
+                        <div class="card-icon css-icon">
+                            CSS
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                CSS
+                            </h3>
+
+                            <p>
+                                Styling, layouts, responsive design and animations.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- JAVASCRIPT -->
+
+                    <a
+                        href="cheatsheets/js.html"
+                        class="cheatsheet-card"
+                        data-name="JavaScript JS programming DOM"
+                    >
+
+                        <div class="card-icon js-icon">
+                            JS
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                JavaScript
+                            </h3>
+
+                            <p>
+                                Programming, DOM manipulation, events and APIs.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- HTTP -->
+
+                    <a
+                        href="cheatsheets/http.html"
+                        class="cheatsheet-card"
+                        data-name="HTTP status codes requests responses"
+                    >
+
+                        <div class="card-icon http-icon">
+                            HTTP
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                HTTP
+                            </h3>
+
+                            <p>
+                                Requests, responses, methods and status codes.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 PROGRAMMING
+            ========================================== -->
+
+            <section
+                class="category"
+                id="programming"
+            >
+
+                <div class="category-header">
+
+                    <div>
+
+                        <p class="category-label">
+                            02
+                        </p>
+
+                        <h2>
+                            Programming
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Languages and programming concepts.
+                    </p>
+
+                </div>
+
+
+                <div class="cheatsheet-grid">
+
+
+                    <!-- PYTHON -->
+
+                    <a
+                        href="cheatsheets/python.html"
+                        class="cheatsheet-card"
+                        data-name="Python programming language"
+                    >
+
+                        <div class="card-icon python-icon">
+                            PY
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Python
+                            </h3>
+
+                            <p>
+                                Syntax, data structures, functions and modules.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- TYPESCRIPT -->
+
+                    <a
+                        href="cheatsheets/typescript.html"
+                        class="cheatsheet-card"
+                        data-name="TypeScript TS JavaScript types"
+                    >
+
+                        <div class="card-icon ts-icon">
+                            TS
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                TypeScript
+                            </h3>
+
+                            <p>
+                                JavaScript with static typing and modern tooling.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- REGEX -->
+
+                    <a
+                        href="cheatsheets/regex.html"
+                        class="cheatsheet-card"
+                        data-name="Regular Expressions Regex patterns"
+                    >
+
+                        <div class="card-icon regex-icon">
+                            .*
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Regular Expressions
+                            </h3>
+
+                            <p>
+                                Patterns for searching, matching and replacing text.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 DATABASES
+            ========================================== -->
+
+            <section
+                class="category"
+                id="databases"
+            >
+
+                <div class="category-header">
+
+                    <div>
+
+                        <p class="category-label">
+                            03
+                        </p>
+
+                        <h2>
+                            Databases
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Store, query and manage data.
+                    </p>
+
+                </div>
+
+
+                <div class="cheatsheet-grid">
+
+
+                    <!-- SQL -->
+
+                    <a
+                        href="cheatsheets/sql.html"
+                        class="cheatsheet-card"
+                        data-name="SQL database queries"
+                    >
+
+                        <div class="card-icon sql-icon">
+                            SQL
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                SQL
+                            </h3>
+
+                            <p>
+                                Queries, joins, filtering, aggregation and more.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- MONGODB -->
+
+                    <a
+                        href="cheatsheets/mongodb.html"
+                        class="cheatsheet-card"
+                        data-name="MongoDB NoSQL database"
+                    >
+
+                        <div class="card-icon mongo-icon">
+                            MDB
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                MongoDB
+                            </h3>
+
+                            <p>
+                                Documents, collections, queries and aggregation.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 DEVELOPMENT TOOLS
+            ========================================== -->
+
+            <section
+                class="category"
+                id="tools"
+            >
+
+                <div class="category-header">
+
+                    <div>
+
+                        <p class="category-label">
+                            04
+                        </p>
+
+                        <h2>
+                            Development Tools
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Tools developers use every day.
+                    </p>
+
+                </div>
+
+
+                <div class="cheatsheet-grid">
+
+
+                    <!-- GIT -->
+
+                    <a
+                        href="cheatsheets/git.html"
+                        class="cheatsheet-card"
+                        data-name="Git version control commands"
+                    >
+
+                        <div class="card-icon git-icon">
+                            GIT
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Git
+                            </h3>
+
+                            <p>
+                                Version control, branches, commits and workflows.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- GITHUB -->
+
+                    <a
+                        href="cheatsheets/github.html"
+                        class="cheatsheet-card"
+                        data-name="GitHub git repository pull request"
+                    >
+
+                        <div class="card-icon github-icon">
+                            GH
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                GitHub
+                            </h3>
+
+                            <p>
+                                Repositories, pull requests, issues and Pages.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- LINUX -->
+
+                    <a
+                        href="cheatsheets/linux.html"
+                        class="cheatsheet-card"
+                        data-name="Linux terminal shell commands"
+                    >
+
+                        <div class="card-icon linux-icon">
+                            $
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Linux
+                            </h3>
+
+                            <p>
+                                Essential terminal commands and filesystem operations.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- MARKDOWN -->
+
+                    <a
+                        href="cheatsheets/markdown.html"
+                        class="cheatsheet-card"
+                        data-name="Markdown README documentation"
+                    >
+
+                        <div class="card-icon markdown-icon">
+                            MD
+                        </div>
+
+                        <div class="card-content">
+
+                            <h3>
+                                Markdown
+                            </h3>
+
+                            <p>
+                                Formatting README files and documentation.
+                            </p>
+
+                            <span class="card-link">
+                                Open cheatsheet →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div>
+
+                <strong>
+                    Dev Cheatsheets
+                </strong>
+
+                <p>
+                    A growing reference for developers.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <p>
+                    Built with HTML, CSS & JavaScript.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
