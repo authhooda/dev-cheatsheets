@@ -1,2 +1,5 @@
 # Dev Cheatsheets 
-Tech is changing, or maybe you want to look back at something old, or just try something new, this is a one stop solution for all of it. Cheat Sheets for all tech nerds, by a tech nerd. :)
+Tech is changing, or maybe you want to look back at something old, or just try something new, this is a one stop solution for all of it. Cheat Sheets for all tech nerds, by a tech nerd :)
+
+<h1>Roadmap</h1>
+<p>I am hoping that others will join as well, but even if it stays not so famous, I will update it time to time and add whatever I feel like adding.</p>
